@@ -1,13 +1,13 @@
-<h2>Installation</h2>
+<h2>Setting up and testing the API locally</h2>
 
 <ul>
 <li>First install MongoDB and MongoDB Compass on your local machine and start a local instance.</li>
 <li>Open Compass and connect to the local DB instance.  It should be auto populated to connect to a local instance with the default
 port.</li>
 
-<li>Create a new DB called "Students-debug" with a collection named "Students-all"</li>
+<li>Create a new DB called "Students-debug"</li>
 
-<li>Clone the repository and navigate to the directory you installed to on the command line</li>
+<li>Clone the repository and navigate to the `API` directory</li>
 
 <li>(Assume you have installed python3 and pip.  If not, install these first)
 <ul>
@@ -21,12 +21,14 @@ port.</li>
 <li>If everything works you should be able to run the application and in the IDE and it will output some Spring Boot related information in the terminal.
 
 
-<li>With the application running you should be able to go to <code>localhost:8080/all</code> in a web browser and see a list of JSON formatted student objects cooresponding to the contents of the MongoDB.</li>
+<li>If everything worked, with the application running you should be able to go to <code>localhost:8080/all</code> in a web browser and see a list of JSON formatted student objects cooresponding to the contents of the MongoDB.</li>
 </ul>
+
+<li>[Postman](https://www.getpostman.com) is a good tool for checking endpoints/routes from the api<li>
 
 <h3>Endpoints</h3>
 
-Get list of all students ------- `GET localhost:8080/all`\
+Get list of all students ------- `GET http:/localhost:8080/all`\
 Get student by id----------`GET localhost:8080/all/{id}`\
 Get list of all students in Car-line--------- `GET localhost:8080/line`\
 Add student to Car-line------`POST localhost:8080/line/{id}`\
