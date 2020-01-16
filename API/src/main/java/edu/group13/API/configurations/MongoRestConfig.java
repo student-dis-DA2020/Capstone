@@ -1,4 +1,4 @@
-package com.csce4623.carline.configurations;
+package edu.group13.API.configurations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

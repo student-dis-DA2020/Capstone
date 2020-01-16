@@ -1,10 +1,10 @@
-package com.csce4623.carline.controllers;
+package edu.group13.API.controllers;
 
-import com.csce4623.carline.models.LineStudent;
-import com.csce4623.carline.models.Student;
+import edu.group13.API.models.LineStudent;
+import edu.group13.API.models.Student;
 
-import com.csce4623.carline.repositories.StudentsAllRepository;
-import com.csce4623.carline.repositories.StudentsLineRepository;
+import edu.group13.API.repositories.StudentsAllRepository;
+import edu.group13.API.repositories.StudentsLineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,5 @@
-package com.csce4623.carline.models;
+package edu.group13.API.models;
 
-  import org.springframework.data.annotation.Id;
   import org.springframework.data.annotation.PersistenceConstructor;
   import org.springframework.data.mongodb.core.mapping.Document;
 

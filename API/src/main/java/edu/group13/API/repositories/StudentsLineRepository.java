@@ -1,6 +1,6 @@
-package com.csce4623.carline.repositories;
+package edu.group13.API.repositories;
 
-  import com.csce4623.carline.models.LineStudent;
+  import edu.group13.API.models.LineStudent;
   import org.springframework.data.mongodb.repository.MongoRepository;
   import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 

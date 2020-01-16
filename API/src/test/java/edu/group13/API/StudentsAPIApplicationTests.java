@@ -1,10 +1,10 @@
-package com.csce4623.carline;
+package edu.group13.API;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CarlineApplicationTests {
+class StudentsAPIApplicationTests {
 
     @Test
     void contextLoads() {
