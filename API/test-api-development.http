@@ -16,14 +16,6 @@ POST http://localhost:8080/line/111
 
 ###
 
-POST http://localhost:8080/line/501
-
-###
-
-DELETE http://localhost:8080/line/501
-
-###
-
 POST http://localhost:8080/line/111/5
 
 ###
