@@ -1,13 +1,13 @@
 <h2>Setting up and testing the API locally</h2>
 
 <ul>
-<li>First install MongoDB and MongoDB Compass on your local machine and start a local instance.</li>
-<li>Open Compass and connect to the local DB instance.  It should be auto populated to connect to a local instance with the default
-port.</li>
+<li>First install <a href=https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/#run-mongodb-community-edition-as-a-windows-service>MongoDB and MongoDB Compass</a> on your local machine and start a local instance.</li>
+  
+<li>Open Compass and connect to the local DB instance.  The connection string (if its running) is <code>mongodb://localhost:27017</code>
 
 <li>Create a new DB called "Students-debug"</li>
 
-<li>Clone the repository and navigate to the `API` directory</li>
+<li>Clone the repository and navigate to the `API` directory in the terminal</li>
 
 <li>(Assume you have installed python3 and pip.  If not, install these first)
 <ul>
