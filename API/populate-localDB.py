@@ -26,7 +26,9 @@ def StudentsCreateDB():
             "cars": [
                 "LSV 281",
                 "SSS 782"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "101",
@@ -36,7 +38,9 @@ def StudentsCreateDB():
             "teacher": "Lena Dunham",
             "cars": [
                 "XRT 455"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "102",
@@ -47,7 +51,9 @@ def StudentsCreateDB():
             "cars": [
                 "QTR 678",
                 "TGH 342"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "103",
@@ -58,7 +64,9 @@ def StudentsCreateDB():
             "cars": [
                 "QAZ 211",
                 "IOP 555"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "104",
@@ -68,7 +76,9 @@ def StudentsCreateDB():
             "teacher": "Jack Frost",
             "cars": [
                 "VBN 333"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "105",
@@ -78,7 +88,9 @@ def StudentsCreateDB():
             "teacher": "Lori Strothers",
             "cars": [
                 "816 KEP"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "106",
@@ -88,7 +100,9 @@ def StudentsCreateDB():
             "teacher": "Sarah Parker",
             "cars": [
                 "XKZ7606"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "107",
@@ -98,7 +112,9 @@ def StudentsCreateDB():
             "teacher": "Lori Strothers",
             "cars": [
                 "0-1397E"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "108",
@@ -108,7 +124,9 @@ def StudentsCreateDB():
             "teacher": "Sarah Parker",
             "cars": [
                 "KPB 182"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "109",
@@ -118,7 +136,9 @@ def StudentsCreateDB():
             "teacher": "Beth Cavner",
             "cars": [
                 "171-YJO"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "110",
@@ -128,7 +148,9 @@ def StudentsCreateDB():
             "teacher": "Jack Frost",
             "cars": [
                 "LHZ 845"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "111",
@@ -138,7 +160,9 @@ def StudentsCreateDB():
             "teacher": "Lori Strothers",
             "cars": [
                 "VBN 333"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "112",
@@ -148,7 +172,9 @@ def StudentsCreateDB():
             "teacher": "Sarah Parker",
             "cars": [
                 "963-BSX"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "113",
@@ -158,7 +184,9 @@ def StudentsCreateDB():
             "teacher": "Lori Strothers",
             "cars": [
                 "VBN 333"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "114",
@@ -168,7 +196,9 @@ def StudentsCreateDB():
             "teacher": "Jack Frost",
             "cars": [
                 "LHZ 845"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "115",
@@ -178,7 +208,9 @@ def StudentsCreateDB():
             "teacher": "Sarah Parker",
             "cars": [
                 "VBN 333"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "116",
@@ -188,7 +220,9 @@ def StudentsCreateDB():
             "teacher": "Lori Strothers",
             "cars": [
                 "VBN 333"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "117",
@@ -198,7 +232,9 @@ def StudentsCreateDB():
             "teacher": "Lori Strothers",
             "cars": [
                 "1X 65152"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "118",
@@ -208,7 +244,9 @@ def StudentsCreateDB():
             "teacher": "Beth Cavner",
             "cars": [
                 "HAP 165"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "119",
@@ -218,7 +256,9 @@ def StudentsCreateDB():
             "teacher": "Jack Frost",
             "cars": [
                 "I11 2RR"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "120",
@@ -228,7 +268,9 @@ def StudentsCreateDB():
             "teacher": "Lori Strothers",
             "cars": [
                 "JUL0766"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "121",
@@ -238,7 +280,9 @@ def StudentsCreateDB():
             "teacher": "Sarah Parker",
             "cars": [
                 "VBN 333"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "122",
@@ -248,7 +292,9 @@ def StudentsCreateDB():
             "teacher": "Lori Strothers",
             "cars": [
                 "S76-06C"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "123",
@@ -268,7 +314,9 @@ def StudentsCreateDB():
             "teacher": "Sarah Parker",
             "cars": [
                 "MG-0439"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "125",
@@ -278,7 +326,9 @@ def StudentsCreateDB():
             "teacher": "Lori Strothers",
             "cars": [
                 "XKZ7606"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "126",
@@ -288,7 +338,9 @@ def StudentsCreateDB():
             "teacher": "Jack Frost",
             "cars": [
                 "956 9FT"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "127",
@@ -298,7 +350,9 @@ def StudentsCreateDB():
             "teacher": "Sarah Parker",
             "cars": [
                 "1-N0808"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "128",
@@ -308,7 +362,9 @@ def StudentsCreateDB():
             "teacher": "Lena Dunham",
             "cars": [
                 "S76-06C"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "129",
@@ -318,7 +374,9 @@ def StudentsCreateDB():
             "teacher": "Lori Strothers",
             "cars": [
                 "KPJ 742"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "130",
@@ -328,7 +386,9 @@ def StudentsCreateDB():
             "teacher": "Beth Cavner",
             "cars": [
                 "VBN 333"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "131",
@@ -338,7 +398,9 @@ def StudentsCreateDB():
             "teacher": "Sarah Parker",
             "cars": [
                 "LHZ 845"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "132",
@@ -348,7 +410,9 @@ def StudentsCreateDB():
             "teacher": "Lena Dunham",
             "cars": [
                 "VBN 333"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "133",
@@ -358,7 +422,9 @@ def StudentsCreateDB():
             "teacher": "Jack Frost",
             "cars": [
                 "VBN 333"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "134",
@@ -368,7 +434,9 @@ def StudentsCreateDB():
             "teacher": "Lori Strothers",
             "cars": [
                 "I11 2RR"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "135",
@@ -378,7 +446,9 @@ def StudentsCreateDB():
             "teacher": "Sarah Parker",
             "cars": [
                 "JUL0766"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "136",
@@ -388,7 +458,9 @@ def StudentsCreateDB():
             "teacher": "Beth Cavner",
             "cars": [
                 "963-BSX"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "137",
@@ -398,7 +470,9 @@ def StudentsCreateDB():
             "teacher": "Sarah Parker",
             "cars": [
                 "VBN 333"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "138",
@@ -408,7 +482,9 @@ def StudentsCreateDB():
             "teacher": "Lori Strothers",
             "cars": [
                 "KTX4100"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "139",
@@ -418,7 +494,9 @@ def StudentsCreateDB():
             "teacher": "Jack Frost",
             "cars": [
                 "KPB 182"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         },
         {
             "_id": "140",
@@ -428,7 +506,9 @@ def StudentsCreateDB():
             "teacher": "Jack Frost",
             "cars": [
                 "171-YJO"
-            ]
+            ],
+            "position": -1,
+            "waiting": False
         }
     ]
     students.insert_many(mylist)
