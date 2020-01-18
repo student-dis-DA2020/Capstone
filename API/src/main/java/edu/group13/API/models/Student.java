@@ -3,8 +3,8 @@ package edu.group13.API.models;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /*
-This model is for the entity type that is in the refernce database that contains
-info on every student in the school for reference
+This model is for the main student entity type that is in  that contains
+info on every student in the school
  */
 
 @Document(collection = "Students-all")

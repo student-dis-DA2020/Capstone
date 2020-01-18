@@ -1,4 +1,10 @@
+### This is out of date needs updated
+
 GET http://localhost:8080/all
+
+###
+
+GET http://localhost:8080/line
 
 ###
 

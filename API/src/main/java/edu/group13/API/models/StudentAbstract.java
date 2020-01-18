@@ -58,14 +58,42 @@ abstract class StudentAbstract {
         return this.teacher;
     }
 
+    int position;
+    public StudentAbstract setPosition(int position) {
+        this.position = position;
+        return this;
+    }
+    public int getPosition() {
+        return this.position;
+    }
+
+    boolean waiting;
+    public StudentAbstract setWaiting(boolean waiting) {
+        this.waiting = waiting;
+        return this;
+    }
+    public boolean getWaiting() {
+        return this.waiting;
+    }
+
+
 
     public StudentAbstract() {}
-    public StudentAbstract(String name, int grade, int room, String[] cars, String teacher) {
-        this.teacher = teacher;
+    public StudentAbstract(String name,
+                           int grade,
+                           int room,
+                           String[] cars,
+                           String teacher,
+                           int position,
+                           boolean waiting
+                           ) {
         this.name = name;
         this.grade = grade;
         this.room = room;
         this.cars = cars;
+        this.teacher = teacher;
+        this.position = position;
+        this.waiting = waiting;
     }
 
 }
