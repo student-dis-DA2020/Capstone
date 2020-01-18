@@ -3,6 +3,7 @@ package edu.group13.API.models;
 import org.springframework.data.annotation.Id;
 
 abstract class StudentAbstract {
+
     @Id
     String _id;
     public StudentAbstract set_id(String _id) {
@@ -76,8 +77,6 @@ abstract class StudentAbstract {
         return this.waiting;
     }
 
-
-
     public StudentAbstract() {}
     public StudentAbstract(String name,
                            int grade,
@@ -95,5 +94,4 @@ abstract class StudentAbstract {
         this.position = position;
         this.waiting = waiting;
     }
-
 }
