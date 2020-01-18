@@ -32,3 +32,5 @@ API/.vscode/
 
 ### Security Sensitive ###
 API/src/main/resources/application-prod.properties
+
+.idea/
