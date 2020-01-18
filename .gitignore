@@ -1,6 +1,6 @@
 HELP.md
 API/target/
-!.mvn/wrapper/maven-wrapper.jar
+API/!.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
 
@@ -20,11 +20,11 @@ API/.idea
 *.ipr
 
 ### NetBeans ###
-API//nbproject/private/
-API//nbbuild/
-API//dist/
-API//nbdist/
-API//.nb-gradle/
+API/nbproject/private/
+API/nbbuild/
+API/dist/
+API/nbdist/
+API/.nb-gradle/
 API/build/
 
 ### VS Code ###
