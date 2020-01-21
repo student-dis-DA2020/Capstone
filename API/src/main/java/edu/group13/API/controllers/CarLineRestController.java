@@ -25,7 +25,7 @@ public class CarLineRestController {
     @Autowired
     private StudentsAllRepository studentsAllRepository;
 
-    //get all students currently in the carline
+    //get all people currently in the carline
     @RequestMapping(value = "/line", method = RequestMethod.GET)
     public ResponseEntity<?> getAllStudentsInLine() {
         List<PersonInLine> students = carLineRepository.findAll();
@@ -36,7 +36,7 @@ public class CarLineRestController {
         }
     }
 
-    //add a student to the carline
+    //add a person in line to the carline
     @RequestMapping(value = "/line/{_id}", method = RequestMethod.POST)
     public ResponseEntity<?> addStudentToLine(@PathVariable("_id") String _id) {
         PersonInLine personInLine = new PersonInLine(studentsAllRepository.findBy_id(_id));
@@ -52,7 +52,7 @@ public class CarLineRestController {
         return new ResponseEntity<>(carLineRepository.save(personInLine), HttpStatus.CREATED);
     }
 
-    //change status of linestudents waiting status
+    //change status of person in line's student's waiting status
     @RequestMapping(value = "/line/{_id}/changewaiting", method = RequestMethod.PUT)
     public ResponseEntity<?> changeWaitingStatus(@PathVariable("_id") String _id) {
         PersonInLine personInLine = carLineRepository.findBy_id(_id);
@@ -61,7 +61,7 @@ public class CarLineRestController {
     }
 
 
-    //remove a student from the carline collection (i.e. they have been picked up)
+    //remove a person from line (i.e. they have been picked up)
     @RequestMapping(value = "/line/{_id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteStudentFromLine(@PathVariable("_id") String _id) {
         carLineRepository.delete(carLineRepository.findBy_id(_id));
