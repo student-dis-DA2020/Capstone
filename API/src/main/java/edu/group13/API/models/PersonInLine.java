@@ -24,4 +24,7 @@ public class PersonInLine extends StudentAbstract{
     this.position = student.position;
     this.waiting = student.waiting;
   }
+
+    public PersonInLine() {
+    }
 }
