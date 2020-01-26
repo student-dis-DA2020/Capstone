@@ -1,8 +1,8 @@
 HELP.md
 API/target/
 API/!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**
-!**/src/test/**
+API/!**/src/main/**
+API/!**/src/test/**
 
 ### STS ###
 API/.apt_generated
@@ -33,4 +33,6 @@ API/.vscode/
 ### Security Sensitive ###
 API/src/main/resources/application-prod.properties
 
-.idea/
+API/.idea/
+API/src/main/resources/application-prod.properties
+API/src/main/resources/application-prod.properties
