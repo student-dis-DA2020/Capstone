@@ -34,7 +34,7 @@
 
 <li> Make sure you have a file in <code>.../resources/</code> called <code>application-prod.properties</code>.  This file is not in the repo because it contains the user/pass for our cloud-based MongoDB cluster/instance.  If you need it just ping me or Tomas in group me.</li>
 
-<li>Base URL is now <code>https://warm-tundra-91429.herokuapp.com</code>. so just append the routes to this instead of localhost:8080.</li>
+<li>The base URL is still http://localhost:8080, but the Spring Boot application is internally connecting to the production database on Atlas.  So try not to do anything too crazy with the production database because it's the one we all share and our application(s) will depend on.</li>
 
 <h2>Endpoints</h2>
 
@@ -48,6 +48,8 @@ Remove Car from line-----`DELETE {Base Url}/line/{id}`\
 Clear the line completely----------`DELETE {Base Url}/line`
 
 <h2>Updating the backend on Heroku</h2>
+
+<li>The backend and DB has been deployed to Heroku if you want to use it without setting up locally just run the above routes with a base URL of <code>https://warm-tundra-91429.herokuapp.com</code>.
 
 <li>Before commiting your changes go to the <code>API/.gitignore</code> file and open with a text editor.  Near the bottom you have to uncomment the line that deals with ignoring the application-prod.properties file.  We need to have this file in the Heroku repository but not in the main repository because it has the user/pass for our production DB.</li>
 
