@@ -1,7 +1,7 @@
-<h2>Setting up and testing the API locally</h2>
+<h2>Setting up and testing the API locally with a local MongoDB</h2>
 
 <ul>
-<li>First install <a href=https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/#run-mongodb-community-edition-as-a-windows-service>MongoDB and MongoDB Compass</a> (if your on Windows, if other then find the tutorial for your OS).  When installing, don't worry about anything to do with Atlas, thats MongoDB's cloud storage solution.  We will use Heroku to keep everything together.  Select install MongoDB as a service option while installing.</li>
+<li>First install <a href=https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/#run-mongodb-community-edition-as-a-windows-service>MongoDB and MongoDB Compass</a> (if your on Windows, if other then find the tutorial for your OS).  When installing, don't worry about anything to do with Atlas, thats MongoDB's cloud storage solution and we have a cloud based DB already set up.  We will use Heroku to keep everything together.  Select install MongoDB as a service option while installing.</li>
   
 <li>Open Compass and connect to the local DB instance.  The connection string (if its running) is <code>mongodb://localhost:27017</code>
 
@@ -21,17 +21,34 @@
 
 
 <li>If everything worked, with the application running you should be able to go to <code>localhost:8080/all</code> in a web browser and see a list of JSON formatted student objects cooresponding to the contents of the MongoDB.</li>
+
+<li>When testing the API and DB locally the spring boot application is set up to connect to an instance of MongoDB running on your local computer.  Therefore the base url to test all the endpoints will be <code>http://localhost:8080</code>. </li>
+
+<li><a href="https://www.getpostman.com">PostMan</a> is a good tool for checking endpoints/routes from the api</li>
+
 </ul>
 
-<li>[Postman](https://www.getpostman.com) is a good tool for checking endpoints/routes from the api<li>
+<h2>Setting up and testing the API locally but connecting to cloud-based production MongoDB cluster</h2>
 
-<h3>Endpoints</h3>
+<li> Go to <code>API/src/main/resources/application.properties</code> and comment out the line <code>spring.profiles.active=dev</code> and uncomment the line <code>spring.profiles.active=prod</code>
 
-Get list of all students ------- `GET http:/localhost:8080/all`\
-Get student by id----------`GET localhost:8080/all/{id}`\
-Get list of all students in Car-line--------- `GET localhost:8080/line`\
-Add Car to Car-line------`POST localhost:8080/line/{id}`\
-Add Car to Car-line with position in line------`POST localhost:8080/line/{id}/{position}`\
-Change Car's respective student's waiting status------- `PUT /line/{_id}/changewaiting`\
-Remove Car from line-----`DELETE localhost:8080/line/{id}`\
-Clear the line completely----------`DELETE localhost:8080/line`
+<li> Make sure you have a file in <code>.../resources/</code> called <code>application-prod.properties</code>.  This file is not in the repo because it contains the user/pass for our cloud-based MongoDB cluster/instance.  If you need it just ping me or Tomas in group me.</li>
+
+<li>Base URL is now <code>https://warm-tundra-91429.herokuapp.com</code>. so just append the routes to this instead of localhost:8080.</li>
+
+<h2>Endpoints</h2>
+
+Get list of all students ------- `GET {Base Url}/all`\
+Get student by id----------`GET {Base Url}/all/{id}`\
+Get list of all students in Car-line--------- `GET {Base Url}/line`\
+Add Car to Car-line------`POST {Base Url}/line/{id}`\
+Add Car to Car-line with position in line------`POST {Base Url}/line/{id}/{position}`\
+Change Car's respective student's waiting status------- `PUT {Base Url}/line/{id}/changewaiting`\
+Remove Car from line-----`DELETE {Base Url}/line/{id}`\
+Clear the line completely----------`DELETE {Base Url}/line`
+
+<h2>Updating the backend on Heroku</h2>
+
+<li>Before commiting your changes go to the <code>API/.gitignore</code> file and open with a text editor.  Near the bottom you have to uncomment the line that deals with ignoring the application-prod.properties file.  We need to have this file in the Heroku repository but not in the main repository because it has the user/pass for our production DB.</li>
+
+<li>If you are satisfied with your changes and everything works completely locally AND with the spring boot application running locally, but connecting to the production database, then you just need to commit your changes then run <code>git push heroku master</code> from within the <code>API/</code> directory.  It won't work if you do it from the root directory because there is a seperate git repo nested inside the API directory that we use to make backend changes.  This nested repo has a remote connection to our Heroku account, but this, the root repo, does not.</li>
