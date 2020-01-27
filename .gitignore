@@ -36,3 +36,5 @@ API/src/main/resources/application-prod.properties
 API/.idea/
 API/src/main/resources/application-prod.properties
 API/src/main/resources/application-prod.properties
+
+.idea/
