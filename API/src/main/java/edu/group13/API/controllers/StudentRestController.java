@@ -6,9 +6,11 @@ import edu.group13.API.repositories.StudentsAllRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -38,6 +40,17 @@ public class StudentRestController {
         } else {
             return new ResponseEntity<>(student, HttpStatus.OK);
         }
+    }
+
+
+    //add a new student to DB
+    @RequestMapping(value = "/all", method = RequestMethod.POST)
+    public ResponseEntity<?> addStudent(@RequestBody Student student) {
+        if (student == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        studentsAllRepository.save(student);
+        return new ResponseEntity<>(student, HttpStatus.CREATED);
     }
 
 }

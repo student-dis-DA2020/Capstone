@@ -60,6 +60,15 @@ public class PersonInLine {
     return this.cars;
   }
 
+  String[] guardians;
+  public PersonInLine setGuardians(String[] guardians) {
+    this.guardians = guardians;
+    return this;
+  }
+  public String[] getGuardians() {
+    return this.guardians;
+  }
+
   String teacher;
   public PersonInLine setTeacher(String teacher) {
     this.teacher = teacher;
@@ -92,6 +101,7 @@ public class PersonInLine {
                  int grade,
                  int room,
                  String[] cars,
+                 String[] guardians,
                  String teacher,
                  int position,
                  boolean waiting
@@ -100,6 +110,7 @@ public class PersonInLine {
     this.grade = grade;
     this.room = room;
     this.cars = cars;
+    this.guardians = guardians;
     this.teacher = teacher;
     this.position = position;
     this.waiting = waiting;
@@ -113,6 +124,7 @@ public class PersonInLine {
     this.grade = student.grade;
     this.room = student.room;
     this.cars = student.cars;
+    this.guardians = student.guardians;
     this.position = student.position;
     this.waiting = student.waiting;
   }
