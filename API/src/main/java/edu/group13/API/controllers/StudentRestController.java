@@ -53,5 +53,30 @@ public class StudentRestController {
         return new ResponseEntity<>(student, HttpStatus.CREATED);
     }
 
+    //update a student
+    @RequestMapping(value = "/all/{_id}", method = RequestMethod.PUT)
+    public ResponseEntity<?> updateStudent(@RequestBody Student student, @PathVariable("_id") String _id) {
+        //check if that student exits
+        Student studentFromID = studentsAllRepository.findBy_id(_id);
+        if (studentFromID == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        studentsAllRepository.save(student);
+        return new ResponseEntity<>(student, HttpStatus.CREATED);
+    }
+
+
+    //delete a student
+    @RequestMapping(value = "/all/{_id}", method = RequestMethod.DELETE)
+    public ResponseEntity<?> deleteStudent(@PathVariable("_id") String _id) {
+        //check if student exists
+        Student studentFromID = studentsAllRepository.findBy_id(_id);
+        if (studentFromID == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        studentsAllRepository.deleteById(_id);
+        return new ResponseEntity<>(studentFromID, HttpStatus.OK);
+    }
+
 }
 
