@@ -40,9 +40,9 @@
 
 Get list of all students ------- `GET {Base Url}/all`\
 Get student by id----------`GET {Base Url}/all/{id}`\
-Add a student -------------`POST {Base Url}/all Body: JSON student representation`
-Update a student -------------`PUT {Base Url}/all/{id} Body: JSON student representation`
-Delete a student -------------`DELETE {Base Url}/all/{id}`
+Add a student -------------`POST {Base Url}/all Body: JSON student representation`\
+Update a student -------------`PUT {Base Url}/all/{id} Body: JSON student representation`\
+Delete a student -------------`DELETE {Base Url}/all/{id}`\
 Get list of all students in Car-line--------- `GET {Base Url}/line`\
 Add Car to Car-line------`POST {Base Url}/line/{id}`\
 Add Car to Car-line with position in line------`POST {Base Url}/line/{id}/{position}`\
