@@ -23,3 +23,15 @@ POST http://localhost:8080/line/111/5
 DELETE http://localhost:8080/line
 
 ###
+
+GET http://localhost:8080/all/searchByTeacher?teacher=Jack Frost
+
+###
+
+GET http://localhost:8080/all/searchByMode?mode=CAR
+
+###
+
+GET http://localhost:8080/all/searchByBus?bus=8
+
+###

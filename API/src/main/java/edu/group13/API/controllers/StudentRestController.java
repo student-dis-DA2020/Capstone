@@ -37,8 +37,7 @@ public class StudentRestController {
         Student student = studentsAllRepository.findBy_id(_id);
         if (student == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } else {
-            return new ResponseEntity<>(student, HttpStatus.OK);
+        } else { return new ResponseEntity<>(student, HttpStatus.OK);
         }
     }
 
@@ -76,6 +75,38 @@ public class StudentRestController {
         }
         studentsAllRepository.deleteById(_id);
         return new ResponseEntity<>(studentFromID, HttpStatus.OK);
+    }
+
+    //get students by teacher
+    @RequestMapping(value = "/all/searchByTeacher", method = RequestMethod.GET)
+    public ResponseEntity<?> searchByTeacher(@RequestParam("teacher") String teacher) {
+        List<Student> students = studentsAllRepository.findByTeacher(teacher);
+        if (students == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(students, HttpStatus.OK);
+    }
+
+
+    //get students by bus number
+    @RequestMapping(value = "/all/searchByBus", method = RequestMethod.GET)
+    public ResponseEntity<?> searchByBus(@RequestParam("bus") int bus) {
+        List<Student> students = studentsAllRepository.findByBus(bus);
+        if (students == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(students, HttpStatus.OK);
+    }
+
+
+    //get students by teacher
+    @RequestMapping(value = "/all/searchByMode", method = RequestMethod.GET)
+    public ResponseEntity<?> searchByMode(@RequestParam("mode") String mode) {
+        List<Student> students = studentsAllRepository.findByMode(mode);
+        if (students == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(students, HttpStatus.OK);
     }
 
 }
