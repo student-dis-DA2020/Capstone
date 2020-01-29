@@ -43,7 +43,7 @@ public class CarLineRestController {
         return new ResponseEntity<>(carLineRepository.save(personInLine), HttpStatus.CREATED);
     }
 
-    //add a student to the carline with position in line
+    //add a person and their student data to the carline with position in line
     @RequestMapping(value = "/line/{_id}/{position}", method = RequestMethod.POST)
     public ResponseEntity<?> addStudentToLineWithPosition(@PathVariable("_id") String _id,
                                                           @PathVariable("position") int position) {
@@ -61,7 +61,7 @@ public class CarLineRestController {
     }
 
 
-    //remove a person from line (i.e. they have been picked up)
+    //remove a person from line (i.e. the student has been picked up)
     @RequestMapping(value = "/line/{_id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteStudentFromLine(@PathVariable("_id") String _id) {
         carLineRepository.delete(carLineRepository.findBy_id(_id));

@@ -52,6 +52,15 @@ public class Student {
         return this.cars;
     }
 
+    String[] guardians;
+    public Student setGuardians(String[] guardians) {
+        this.guardians = guardians;
+        return this;
+    }
+    public String[] getGuardians() {
+        return this.guardians;
+    }
+
     String teacher;
     public Student setTeacher(String teacher) {
         this.teacher = teacher;
@@ -70,6 +79,24 @@ public class Student {
         return this.position;
     }
 
+    int bus;
+    public Student setBus(int bus) {
+        this.bus = bus;
+        return this;
+    }
+    public int getBus() {
+        return this.bus;
+    }
+
+    String mode;
+    public Student setMode(String mode) {
+        this.mode = mode;
+        return this;
+    }
+    public String getMode() {
+        return this.mode;
+    }
+
     boolean waiting;
     public Student setWaiting(boolean waiting) {
         this.waiting = waiting;
@@ -84,16 +111,22 @@ public class Student {
                        int grade,
                        int room,
                        String[] cars,
+                       String[] guardians,
                        String teacher,
                        int position,
+                       int bus,
+                       String mode,
                        boolean waiting
                        ) {
         this.name = name;
         this.grade = grade;
         this.room = room;
         this.cars = cars;
+        this.guardians = guardians;
         this.teacher = teacher;
         this.position = position;
+        this.bus = bus;
+        this.mode = mode;
         this.waiting = waiting;
     }
 }
