@@ -1,7 +1,7 @@
 <h2>Setting up and testing the API locally with a local MongoDB</h2>
 
 <ul>
-<li>First install <a href=https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/#run-mongodb-community-edition-as-a-windows-service>MongoDB and MongoDB Compass</a> (if your on Windows, if other then find the tutorial for your OS).  When installing, don't worry about anything to do with Atlas, thats MongoDB's cloud storage solution and we have a cloud based DB already set up.  We will use Heroku to keep everything together.  Select install MongoDB as a service option while installing.</li>
+<li>First install <a href=https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/#run-mongodb-community-edition-as-a-windows-service>MongoDB and MongoDB Compass</a> (if your on Windows, if other then find the tutorial for your OS).  When installing, don't worry about anything to do with Atlas, thats MongoDB's cloud storage solution and we have a cloud based DB already set up with it.  We will use Heroku to keep everything together.  Select install MongoDB as a service option while installing.</li>
   
 <li>Open Compass and connect to the local DB instance.  The connection string (if its running) is <code>mongodb://localhost:27017</code>
 
@@ -56,7 +56,7 @@ Clear the line completely----------`DELETE {Base Url}/line`
 
 <h2>Updating the backend on Heroku</h2>
 
-<li>The backend and DB has been deployed to Heroku if you want to use it without setting up locally just run the above routes with a base URL of <code>https://warm-tundra-91429.herokuapp.com</code>.
+<li>The backend and DB has been deployed to Heroku if you want to use it without setting up locally just run the above routes with a base URL of <code>https://ancient-bayou-94629.herokuapp.com</code>.
 
 <li>Before commiting your changes go to the <code>API/.gitignore</code> file and open with a text editor.  Near the bottom you have to uncomment the line that deals with ignoring the application-prod.properties file.  We need to have this file in the Heroku repository but not in the main repository because it has the user/pass for our production DB.</li>
 
