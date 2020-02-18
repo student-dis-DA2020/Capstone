@@ -38,3 +38,5 @@ API/src/main/resources/application-prod.properties
 API/src/main/resources/application-prod.properties
 
 .idea/
+
+Website/school-dismissal-app/node_modules
