@@ -1,7 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### FIRST RUN `npm install` from the directory! It installs everything to run the app locally!
 
+## Available Scripts
 In the project directory, you can run:
 
 ### `npm start`
