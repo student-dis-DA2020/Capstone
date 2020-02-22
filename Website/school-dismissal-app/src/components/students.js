@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const Students = ({ students }) => {
   return (
     <div>
@@ -10,18 +11,14 @@ const Students = ({ students }) => {
             <h5 class="card-title">{student._id}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{student.name}</h6>
             <p class="card-text">Teacher: {student.teacher}</p>
-            <p class="card-text">Parent: {student.guardians[0]}</p>
-            <p class="card-text">Mode: {student.mode}</p>
-
-          <p>
-            <label>Select list</label>
+            <p class="card-text">
+            <label>Parents: </label>
              <select id = "myList">
-               <option value = "1">one</option>
-               <option value = "2">two</option>
-               <option value = "3">three</option>
-               <option value = "4">four</option>
+             <option value = "1">{student.guardians[0]}</option>
+               <option value = "2">{student.guardians[1]}</option>
              </select>
-          </p>
+            </p>
+            <p class="card-text">Mode: {student.mode}</p>
 
 
           </div>
@@ -32,6 +29,5 @@ const Students = ({ students }) => {
   )
   
 };
-
 
 export default Students
