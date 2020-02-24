@@ -37,7 +37,24 @@ class StudentData extends Component {
         </View>
         
          <ScrollView  >
-          {data.map(job => <View style={styles.displayNames} key={job._id}><Text> Name: {job.name}</Text></View>)}
+          {data.map(job => <View style={styles.displayNames} key={job._id}>
+            <Text> Name: {job.name}</Text>
+            <Text> ID Number: {job._id}</Text>
+            
+            <text> Parents Car's: 
+             <select id = "myList">
+             <option value = "1">{job.cars[0]}</option>
+             </select></text>
+
+            <text> Gaurdians: 
+             <select id = "myList">
+             <option value = "1">{job.guardians[0]}</option>
+             <option value = "2">{job.guardians[1]}</option>
+             </select></text>
+            <Text> Room number: {job.room}</Text>
+            
+
+            </View>)}
         </ScrollView>
         {/* <View  style={styles.container}>
           <Text> error: { status }</Text>
