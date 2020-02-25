@@ -37,28 +37,17 @@ class StudentData extends Component {
         </View>
         
          <ScrollView  >
-          {data.map(job => <View style={styles.displayNames} key={job._id}>
-            <Text> Name: {job.name}</Text>
-            <Text> ID Number: {job._id}</Text>
+          {data.map(student => 
             
-            <text> Parents Car's: 
-             <select id = "myList">
-             <option value = "1">{job.cars[0]}</option>
-             </select></text>
-
-            <text> Gaurdians: 
-             <select id = "myList">
-             <option value = "1">{job.guardians[0]}</option>
-             <option value = "2">{job.guardians[1]}</option>
-             </select></text>
-            <Text> Room number: {job.room}</Text>
+            <View style={styles.displayNames} key={student._id}>
+                <Text> ID : {student._id}</Text>
+                <Text> Name: {student.name}</Text>
+                <Text> Guardians: {student.guardians[0]}, {student.guardians[1]}</Text>
+                <Text> Grade: {student.grade}</Text>
+            </View>
             
-
-            </View>)}
+            )}
         </ScrollView>
-        {/* <View  style={styles.container}>
-          <Text> error: { status }</Text>
-       </View> */}
       </View> 
     );
   }
@@ -84,6 +73,8 @@ const styles = StyleSheet.create({
   },
   displayNames: {
     padding: 5,
+    borderColor: '#D3D3D3',
+    borderWidth: 10,
   }
 })
 export default connect(mapStateToProps,null)(StudentData);
