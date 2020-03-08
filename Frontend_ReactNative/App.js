@@ -1,11 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { enableScreens } from "react-native-screens"
+enableScreens();
 import { Provider } from 'react-redux';
 
 import store from './store';
 import { fetchstudentData } from './api';
 import StudentData from './containers/studentData'
 import Button from './components/Button';
+import TabNavigator from './navigators/TabNavigator';
 
 
 /*This is the main class of our app
@@ -20,39 +23,15 @@ export default class App extends React.Component {
  //  setInterval(this.printReduxStorage,10000)
   }
 
-  genericButton = () => {
-    console.log('button pressed')
-  }
-
-
   render(){
      /*start the redux process*/
     return (
-      <View style={styles.container}>
-        <View>
-          <Button
-            backgroundColor='#A8DADC'
-            color='#1F2828'
-            text='My Class'
-            function={() => this.genericButton()}
-          />
-          <Button
-            backgroundColor='#A8DADC'
-            color='#1F2828'
-            text='Bus Line'
-            function={() => this.genericButton()}
-          />
-          <Button
-            backgroundColor='#A8DADC'
-            color='#1F2828'
-            text='Car Line'
-            function={() => this.genericButton()}
-          />
-        </View>
-         {/* <Provider store={store}>
-                <StudentData />
-          </Provider> */}
-      </View>
+      // <View style={styles.container}>
+      //    {/* <Provider store={store}>
+      //           <StudentData />
+      //     </Provider> */}
+      // </View>
+      <TabNavigator/>
     )
   }
 }
