@@ -1,12 +1,14 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-export default BusLine = () => {
+export default class BusLine extends React.Component {
+  render() {
    return (
       <View style={styles.container}>
           <Text>Bus Line screen coming....</Text>
       </View>
    );
+  }
 };
 
 const styles = StyleSheet.create({

@@ -1,12 +1,29 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import { render } from 'react-dom';
+import { fetchAllStudents, fetchByTeacher } from '../api';
+import { Provider } from 'react-redux';
+import StudentData from '../containers/studentData'
 
-export default Class = () => {
+import store from '../store';
+
+export default class Class extends React.Component {
+  
+  componentDidMount(){
+    console.log('fetching Jack Frost Students')
+    store.dispatch(fetchByTeacher('Jack Frost'));
+ //  setInterval(this.printReduxStorage,10000)
+  }
+
+  render() {
    return (
       <View style={styles.container}>
-          <Text>My class screen coming....</Text>
+          <Provider store={store}>
+                <StudentData />
+          </Provider> 
       </View>
    );
+  }
 };
 
 const styles = StyleSheet.create({

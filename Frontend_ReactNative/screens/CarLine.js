@@ -1,12 +1,14 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-export default CarLine = () => {
+export default class CarLine extends React.Component {
+  render() {
    return (
       <View style={styles.container}>
           <Text>Car Line screen coming....</Text>
       </View>
    );
+  }
 };
 
 const styles = StyleSheet.create({

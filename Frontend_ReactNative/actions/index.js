@@ -1,23 +1,23 @@
-import {FETCH_STUDENTS_PENDING, FETCH_STUDENTS_ERROR, FETCH_STUDENTS_SUCCESS } from './types';
+import {FETCH_PENDING, FETCH_ERROR, FETCH_SUCCESS } from './types';
 
 
 //redux actions
-export const fetchStudentsPending = () => {
+export const fetchPending = () => {
   return {
-    type: FETCH_STUDENTS_PENDING
+    type: FETCH_PENDING
   }
 };
 
-export const fetchStudentsError = (error) => {
+export const fetchError = (error) => {
   return {
-    type: FETCH_STUDENTS_ERROR,
+    type: FETCH_ERROR,
     error:error
   }
 };
 
-export const fetchStudentsSuccess = (data) => {
+export const fetchSuccess = (data) => {
   return {
-    type: FETCH_STUDENTS_SUCCESS,
-    students:data
+    type: FETCH_SUCCESS,
+    data:data
   }
 }

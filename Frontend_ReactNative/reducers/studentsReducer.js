@@ -1,4 +1,4 @@
-import {FETCH_STUDENTS_PENDING,FETCH_STUDENTS_ERROR,FETCH_STUDENTS_SUCCESS } from '../actions/types';
+import {FETCH_PENDING,FETCH_ERROR,FETCH_SUCCESS } from '../actions/types';
 
 //Object for the Jobs state
 const initialState = {
@@ -10,18 +10,18 @@ const initialState = {
 export default function studentReducer(state = initialState, action) {  
   
   switch (action.type) {
-      case FETCH_STUDENTS_ERROR:
+      case FETCH_ERROR:
         return {
           ...state,
           pending: false,
           error:  action.error
         }
-      case FETCH_STUDENTS_PENDING:
+      case FETCH_PENDING:
         return {
           ...state,
           pending: true
         }
-      case FETCH_STUDENTS_SUCCESS:
+      case FETCH_SUCCESS:
         return{
           ...state,
           pending: false,
