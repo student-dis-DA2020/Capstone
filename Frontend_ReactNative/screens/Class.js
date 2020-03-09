@@ -6,11 +6,12 @@ import { Provider } from 'react-redux';
 import StudentData from '../containers/studentData'
 
 import store from '../store';
+import StudentByTeacher from '../containers/StudentByTeacher';
 
 export default class Class extends React.Component {
   
   componentDidMount(){
-    console.log('fetching Jack Frost Students')
+    console.log('fetching Jack Frost\'s Students')
     store.dispatch(fetchByTeacher('Jack Frost'));
  //  setInterval(this.printReduxStorage,10000)
   }
@@ -19,7 +20,7 @@ export default class Class extends React.Component {
    return (
       <View style={styles.container}>
           <Provider store={store}>
-                <StudentData />
+                <StudentByTeacher />
           </Provider> 
       </View>
    );

@@ -18,6 +18,6 @@ export const fetchError = (error) => {
 export const fetchSuccess = (data) => {
   return {
     type: FETCH_SUCCESS,
-    data:data
+    students:data
   }
 }
