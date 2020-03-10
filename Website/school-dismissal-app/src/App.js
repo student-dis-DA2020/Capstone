@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
-import Students from './components/students';
+import MainRouter from './pages/MainRouter/MainRouter';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+
+
+const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+    fontFamily: [
+      'Nunito',
+    ].join(','),
+  },
+});
 
 class App extends Component {
   render() {
     return (
-      <Students students={this.state.students} />
+      <MuiThemeProvider theme={theme}>
+        <MainRouter />
+      </MuiThemeProvider>
     );
   }
 
-  state = {
-    students: []
-  };
-
-  componentDidMount() {
-        fetch('https://ancient-bayou-94629.herokuapp.com/all')
-        .then(res => res.json())
-        .then((data) => {
-          this.setState({ students: data })
-        })
-        .catch(console.log)
-      }
-
-      
 
 }
 
