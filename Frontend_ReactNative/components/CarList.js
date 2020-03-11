@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.DARK_BLUE
   },
   innerText:{
+    padding: 6,
     color: 'white',
     fontSize: 18
   }
