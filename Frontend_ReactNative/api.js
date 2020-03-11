@@ -53,7 +53,6 @@ export const fetchByTeacher = (teacherName) => {
         dispatch(fetchPending())
         const response = await fetch(BASE_URL + ALL_ENDPOINT + '/searchByTeacher?teacher=' + teacherName);
         const responseJson = await response.json();
-        console.log(responseJson); 
         if(responseJson.message !== undefined){
           
           throw(responseJson.message)
