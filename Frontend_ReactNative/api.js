@@ -86,3 +86,14 @@ export const fetchQueue =  () => {
       }
     }
 }
+
+//gets list of all cars currently in the queue
+export const fetchQueueNoStore =  () => {
+  fetch(BASE_URL + CARLINE_ENDPOINT)
+    .then(response => response.json())
+    .then((data) => {
+      this.ListeningStateChangedEvent( { cars: data })
+      console.log(this.StaticRange.todos)
+    })
+    .catch(console.log)
+}
