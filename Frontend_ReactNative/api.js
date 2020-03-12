@@ -53,7 +53,6 @@ export const fetchByTeacher = (teacherName) => {
         dispatch(fetchPending())
         const response = await fetch(BASE_URL + ALL_ENDPOINT + '/searchByTeacher?teacher=' + teacherName);
         const responseJson = await response.json();
-        console.log(responseJson); 
         if(responseJson.message !== undefined){
           
           throw(responseJson.message)
@@ -85,4 +84,15 @@ export const fetchQueue =  () => {
         dispatch(fetchError(error))
       }
     }
+}
+
+//gets list of all cars currently in the queue
+export const fetchQueueNoStore =  () => {
+  fetch(BASE_URL + CARLINE_ENDPOINT)
+    .then(response => response.json())
+    .then((data) => {
+      this.ListeningStateChangedEvent( { cars: data })
+      console.log(this.StaticRange.todos)
+    })
+    .catch(console.log)
 }

@@ -5,7 +5,7 @@ import colors from '../config/colors';
 
 
 //this shows all the students belonging to a particular teacher
-class StudentByTeacher extends Component {
+class CarsInQueue extends Component {
 
   constructor(props){
     super(props);
@@ -30,19 +30,19 @@ class StudentByTeacher extends Component {
         )
     }
     return (
-      //display all the students
+      //display all the cars loaded in queue
       <View style={{paddingTop:30}}>
 
         <View style={{padding:10, justifyContent: 'center',alignItems : 'center'}}>
-            <Text>Welcome, Jack Frost...</Text>
+            <Text>Cars waiting in queue</Text>
         </View>
         
          <ScrollView  >
           {data.map(student => 
             
             <View style={styles.displayNames} key={student._id}>
-                <Text> Name: {student.name}</Text>
-                <Text> Dismissal Mode: {student.mode}</Text>
+                <Text> ID: {student._id}</Text>
+                <Text> License Plate: {student.cars[0]}</Text>
             </View>
             
             )}
@@ -78,4 +78,4 @@ const styles = StyleSheet.create({
     margin: 3
   }
 })
-export default connect(mapStateToProps,null)(StudentByTeacher);
+export default connect(mapStateToProps,null)(CarsInQueue);
