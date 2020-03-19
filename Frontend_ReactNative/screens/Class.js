@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import { fetchAllStudents, fetchByTeacher } from '../api';
 import { Provider } from 'react-redux';
 import StudentData from '../containers/studentData'
+import styles from '../config/styles'
 
 import store from '../store';
 import StudentByTeacher from '../containers/StudentByTeacher';
@@ -18,7 +19,7 @@ export default class Class extends React.Component {
 
   render() {
    return (
-      <View style={styles.container}>
+      <View style={styles.mainContainer}>
           <Provider store={store}>
                 <StudentByTeacher />
           </Provider> 
@@ -26,13 +27,3 @@ export default class Class extends React.Component {
    );
   }
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F1FAEE',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 8
-  }
-});

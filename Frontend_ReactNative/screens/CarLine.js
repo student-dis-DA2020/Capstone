@@ -9,6 +9,7 @@ import CarList from '../components/CarList'
 
 import store from '../store';
 import colors from '../config/colors';
+import styles from '../config/styles';
 
 export default class CarLine extends React.Component {
 //   componentDidMount(){
@@ -24,7 +25,7 @@ export default class CarLine extends React.Component {
       //           <CarsInQueue />
       //     </Provider> 
       // </View>
-      <View style={styles.container}>
+      <View style={styles.toolbarContainer}>
         <Header
           leftComponent={{ icon: 'menu', color: 'white' }}
           centerComponent={{ text: 'CAR LINE', style: { color: 'white' } }}
@@ -36,12 +37,3 @@ export default class CarLine extends React.Component {
    );
   }
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F1FAEE',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
-});

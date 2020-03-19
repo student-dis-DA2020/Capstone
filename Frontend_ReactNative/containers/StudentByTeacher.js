@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {ScrollView, StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 import colors from '../config/colors';
+import styles from '../config/styles';
 
 
 //this shows all the students belonging to a particular teacher
@@ -24,25 +25,26 @@ class StudentByTeacher extends Component {
     }
     if(pending){ //loading icon
         return (
-          <View style={[styles.container, styles.horizontal]}>
+          <View style={[styles.listContainer, styles.horizontal]}>
             <ActivityIndicator size="large" color={colors.DARK_BLUE} />
           </View>
         )
     }
     return (
       //display all the students
-      <View style={{paddingTop:30}}>
+      <View style={[styles.listContainer, {paddingTop:30}]}>
 
         <View style={{padding:10, justifyContent: 'center',alignItems : 'center'}}>
             <Text>Welcome, Jack Frost...</Text>
         </View>
         
-         <ScrollView  >
+         <ScrollView >
           {data.map(student => 
-            
-            <View style={styles.displayNames} key={student._id}>
-                <Text> Name: {student.name}</Text>
-                <Text> Dismissal Mode: {student.mode}</Text>
+            <View style={styles.card}>
+              <View style={styles.listItem} key={student._id}>
+                  <Text style={[styles.innerText, {textAlign: 'left'}]}> Name: {student.name}</Text>
+                  <Text style={[styles.innerText, {textAlign: 'left'}]}> Dismissal Mode: {student.mode}</Text>
+              </View>
             </View>
             
             )}
@@ -60,22 +62,5 @@ const mapStateToProps = state => {
   };
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center'
-  },
-  horizontal: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    padding: 10
-  },
-  displayNames: {
-    backgroundColor: colors.LIGHT_BLUE,
-    padding: 5,
-    borderColor: colors.BLUE,
-    borderWidth: 5,
-    margin: 3
-  }
-})
+
 export default connect(mapStateToProps,null)(StudentByTeacher);
