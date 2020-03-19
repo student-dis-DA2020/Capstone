@@ -20,7 +20,7 @@ const TabNavigator = createMaterialBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: <Text style={{ fontSize: 10, color: activeTintLabelColor }}> Home </Text>,
       tabBarIcon: ({ focused }) => (
-        <Icon name='format-list-bulleted' color={focused ? activeTintLabelColor : inactiveTintLabelColor} size={24} />
+        <Icon name='home' color={focused ? activeTintLabelColor : inactiveTintLabelColor} size={24} />
       ),
       tabBarColor: colors.DARK_BLUE
     }
@@ -30,7 +30,7 @@ const TabNavigator = createMaterialBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: <Text style={{ fontSize: 10, color: activeTintLabelColor }}> My Class </Text>,
       tabBarIcon: ({ focused }) => (
-        <Icon name='format-list-bulleted' color={focused ? activeTintLabelColor : inactiveTintLabelColor} size={24} />
+        <Icon name='google-classroom' color={focused ? activeTintLabelColor : inactiveTintLabelColor} size={24} />
       ),
       tabBarColor: colors.DARK_BLUE
     }
@@ -40,7 +40,7 @@ const TabNavigator = createMaterialBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: <Text style={{ fontSize: 10, color: activeTintLabelColor }}> Car Line </Text>,
       tabBarIcon: ({ focused }) => (
-        <Icon name='format-list-bulleted' color={focused ? activeTintLabelColor : inactiveTintLabelColor} size={24} />
+        <Icon name='car' color={focused ? activeTintLabelColor : inactiveTintLabelColor} size={24} />
       ),
       tabBarColor: colors.DARK_BLUE
     }
@@ -50,7 +50,7 @@ const TabNavigator = createMaterialBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: <Text style={{ fontSize: 10, color: activeTintLabelColor }}> Bus Line </Text>,
       tabBarIcon: ({ focused }) => (
-        <Icon name='format-list-bulleted' color={focused ? activeTintLabelColor : inactiveTintLabelColor} size={24} />
+        <Icon name='bus' color={focused ? activeTintLabelColor : inactiveTintLabelColor} size={24} />
       ),
       tabBarColor: colors.DARK_BLUE
     }
