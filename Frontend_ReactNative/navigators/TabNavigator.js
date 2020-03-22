@@ -5,14 +5,38 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import colors from '../config/colors'
+import {styles} from '../config/styles'
 
 import Home from "../screens/Home";
 import Class from "../screens/Class";
 import CarLine from "../screens/CarLine";
 import BusLine from "../screens/BusLine";
+import Cars from "../screens/Cars";
+import Students from "../screens/Students";
 
 const activeTintLabelColor = 'white';
 const inactiveTintLabelColor = 'grey';
+
+const CarLineTabNavigator = createMaterialBottomTabNavigator({
+  Cars: {
+    screen: Cars,
+    navigationOptions: {
+      tabBarIcon: ({ focused }) => (
+        <Icon name='car' color={focused ? activeTintLabelColor : inactiveTintLabelColor} size={24} />
+      ),
+      tabBarColor: colors.LIGHT_BLUE
+    },
+  },
+  Students: {
+    screen: Students,
+    navigationOptions: {
+      tabBarIcon: ({ focused }) => (
+        <Icon name='account-group' color={focused ? activeTintLabelColor : inactiveTintLabelColor} size={24} />
+      ),
+      tabBarColor: colors.LIGHT_BLUE
+    },
+  }
+});
 
 const TabNavigator = createMaterialBottomTabNavigator({
   Home: {
@@ -36,7 +60,7 @@ const TabNavigator = createMaterialBottomTabNavigator({
     }
   },
   CarLine: {
-    screen: CarLine,
+    screen: CarLineTabNavigator,
     navigationOptions: {
       tabBarLabel: <Text style={{ fontSize: 10, color: activeTintLabelColor }}> Car Line </Text>,
       tabBarIcon: ({ focused }) => (

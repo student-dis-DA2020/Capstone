@@ -5,23 +5,23 @@ import styles from '../config/styles'
 import colors from '../config/colors';
 
 
-export default class CarList extends React.Component {
+export default class StudentList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             loading: true,
-            cars:[]
+            students:[]
         };
     }
 
     componentDidMount(){
-        console.log('fetching cars currently in line')
+        console.log('fetching students currently in line')
         fetch(API.BASE_URL + API.CARLINE)
         .then(response => response.json())
         .then((responseJson)=> {
             this.setState({
             loading: false,
-            cars: responseJson
+            students: responseJson
             })
         })
         .catch(error=>console.log(error))
@@ -33,8 +33,14 @@ export default class CarList extends React.Component {
             <Text style={[styles.innerText, {textAlign: 'left'}]}>
                 {data.item._id}
             </Text>
-            <Text style={[styles.innerText, {textAlign: 'right'}]}>
-                {data.item.cars[0]}
+            <Text style={[styles.innerText, {textAlign: 'left'}]}>
+                {data.item.name}
+            </Text>
+            <Text style={[styles.innerText, {textAlign: 'right', float: 'right'}]}>
+                {data.item.room}
+            </Text>
+            <Text style={[styles.innerText, {textAlign: 'right', float: 'right'}]}>
+                {data.item.teacher}
             </Text>
         </TouchableOpacity>
         </View>
@@ -49,7 +55,7 @@ export default class CarList extends React.Component {
        return(
         <View style={styles.listContainer}>
           <FlatList
-            data= {this.state.cars}
+            data= {this.state.students}
             renderItem= {item=> this.renderItem(item)}
             keyExtractor= {item=>item._id.toString()}
           />

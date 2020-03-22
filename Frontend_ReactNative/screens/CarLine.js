@@ -28,8 +28,7 @@ export default class CarLine extends React.Component {
       <View style={styles.toolbarContainer}>
         <Header
           leftComponent={{ icon: 'menu', color: 'white' }}
-          centerComponent={{ text: 'CAR LINE', style: { color: 'white' } }}
-          rightComponent={{ icon: 'home', color: 'white' }}
+          rightComponent={{ text: 'CAR LINE', style: { color: 'white'} }}
           backgroundColor={colors.BLUE}
         />
         <CarList/>

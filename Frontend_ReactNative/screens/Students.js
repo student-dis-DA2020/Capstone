@@ -1,23 +1,22 @@
 
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import StudentList from '../components/StudentList';
+import styles from '../config/styles';
+import { Header } from 'react-native-elements';
+import colors from '../config/colors';
 
-export default class Cars extends React.Component {
+export default class Students extends React.Component {
   render() {
    return (
-      <View style={styles.container}>
-          <Text>This will mirror the data from the car/id page but show student data insead of car-data....</Text>
+      <View style={styles.toolbarContainer}>
+        <Header
+          leftComponent={{ icon: 'menu', color: 'white' }}
+          rightComponent={{ text: 'CAR LINE', style: { color: 'white'} }}
+          backgroundColor={colors.BLUE}
+        />
+        <StudentList/>
       </View>
    );
   }
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F1FAEE',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 8
-  }
-});
