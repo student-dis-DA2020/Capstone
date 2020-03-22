@@ -1,14 +1,14 @@
 import { StyleSheet } from 'react-native'
-import colors from '../config/colors';
+import colors from './colors';
  
 
 const styles = StyleSheet.create({
     card: {
       borderRadius: 6, 
       elevation: 6,
-      backgroundColor: colors.OFF_WHITE,
+      backgroundColor: 'white',
       shadowOffset: { width: 3, height: 3 },
-      shadowColor: '#E0E0E0',
+      shadowColor: colors.BLUE,
       shadowOpacity: 0.3,
       shadowRadius: 2,    
       marginHorizontal: 4,
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     },
     mainContainer: {
       flex: 1,
-      backgroundColor: '#F1FAEE',
+      backgroundColor: colors.OFF_WHITE,
       alignItems: 'center',
       justifyContent: 'center',
     },
