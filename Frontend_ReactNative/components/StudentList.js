@@ -16,7 +16,7 @@ export default class StudentList extends React.Component {
     }
 
     updateQueue() {
-        console.log('fetching cars currently in line')
+        console.log('fetching students currently in line')
         fetch(API.BASE_URL + API.CARLINE)
         .then(response => response.json())
         .then((responseJson)=> {
@@ -38,7 +38,7 @@ export default class StudentList extends React.Component {
 
     componentWillUnmount() {
         //stop the timer
-        clearInterval(timerID);
+        clearInterval(timerId);
     }
 
     renderItem = (data) => 
@@ -66,14 +66,14 @@ export default class StudentList extends React.Component {
     render() {
         if(this.state.loading){
          return( 
-           <View style={styles.listContainer}> 
+           <View style={styles.mainContainer}> 
              <ActivityIndicator size="large" color={colors.BLUE}/>
            </View>
        )}
        return(
         <View style={styles.listContainer}>
           <FlatList
-            //sort by position value
+          //sort by position value
             data= {this.state.students.sort((a, b) => (a.position > b.position) ? 1 : -1)}
             renderItem= {item=> this.renderItem(item)}
             keyExtractor= {item=>item._id.toString()}

@@ -4,6 +4,7 @@ import { StyleSheet, View, Text, ActivityIndicator, FlatList, TouchableOpacity} 
 import API from '../config/environment'
 import styles from '../config/styles'
 import colors from '../config/colors';
+import { Header } from 'react-native/Libraries/NewAppScreen';
 
 
 export default class ClassList extends React.Component {
@@ -17,31 +18,24 @@ export default class ClassList extends React.Component {
     }
 
     //makes api call to get all students/cars currently in line
-    updateQueue() {
-        console.log('fetching cars currently in line')
-        fetch(API.BASE_URL + API.CARLINE)
+    updateClass() {
+        console.log('fetching students in your class');
+        fetch(API.BASE_URL + API.ALL_STUDENTS + '/searchByTeacher?teacher=' + this.state.teacher)
         .then(response => response.json())
         .then((responseJson)=> {
             this.setState({
             loading: false,
-            cars: responseJson
+            students: responseJson
             })
         })
         .catch(error=>console.log(error))
-        
     }
 
     componentDidMount(){
-        //update queue every 3 secs
-        const timerId = setInterval(() => this.updateQueue(), 3000); 
-        this.setState({
-            timerId: timerId 
-        });
+        this.updateClass();
     }
 
-    //quit making api calls when component is unmounted
     componentWillUnmount() {
-        clearInterval(this.state.timerId);
     }
 
     renderItem = (data) => 
@@ -49,10 +43,10 @@ export default class ClassList extends React.Component {
         <TouchableOpacity style={styles.listItem}>
             <View style={styles.textRow}>
                 <Text style={[styles.rowItem]}>
-                    {data.item._id}
+                    {data.item.name}
                 </Text>
                 <Text style={[styles.rowItem, {textAlign: 'right'}]}>
-                    {data.item.cars[0]}
+                    {data.item.mode}
                 </Text>
             </View>
         </TouchableOpacity>
@@ -71,7 +65,7 @@ export default class ClassList extends React.Component {
         <View style={styles.listContainer}>
           <FlatList
             //sort by position value
-            data= {this.state.cars.sort((a, b) => (a.position > b.position) ? 1 : -1)}
+            data= {this.state.students.sort((a, b) => (a.name.localeCompare(b.name)))}
             renderItem= {item=> this.renderItem(item)}
             keyExtractor= {item=>item._id.toString()}
           />
