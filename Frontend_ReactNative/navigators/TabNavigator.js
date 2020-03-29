@@ -1,5 +1,5 @@
 import { createAppContainer } from "react-navigation";
-import { createBottomTabNavigator } from "react-navigation-tabs";
+import { createBottomTabNavigator, createMaterialTopTabNavigator } from "react-navigation-tabs";
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import React from 'react';
@@ -9,7 +9,6 @@ import {styles} from '../config/styles'
 
 import Home from "../screens/Home";
 import Class from "../screens/Class";
-import CarLine from "../screens/CarLine";
 import BusLine from "../screens/BusLine";
 import Cars from "../screens/Cars";
 import Students from "../screens/Students";
@@ -17,24 +16,22 @@ import Students from "../screens/Students";
 const activeTintLabelColor = 'white';
 const inactiveTintLabelColor = 'grey';
 
-const CarLineTabNavigator = createMaterialBottomTabNavigator({
+const CarLineTabNavigator = createMaterialTopTabNavigator({
   Cars: {
     screen: Cars,
     navigationOptions: {
-      tabBarIcon: ({ focused }) => (
-        <Icon name='car' color={focused ? activeTintLabelColor : inactiveTintLabelColor} size={24} />
-      ),
+      activeTintColor: colors.BLUE,
+      inactiveTintColor: colors.BLUE,
       tabBarColor: colors.LIGHT_BLUE
-    },
+    }
   },
   Students: {
     screen: Students,
     navigationOptions: {
-      tabBarIcon: ({ focused }) => (
-        <Icon name='account-group' color={focused ? activeTintLabelColor : inactiveTintLabelColor} size={24} />
-      ),
+      activeTintColor: colors.BLUE,
+      inactiveTintColor: colors.BLUE,
       tabBarColor: colors.LIGHT_BLUE
-    },
+    }
   }
 });
 

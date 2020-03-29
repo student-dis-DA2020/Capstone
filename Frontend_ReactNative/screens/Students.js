@@ -9,12 +9,7 @@ import colors from '../config/colors';
 export default class Students extends React.Component {
   render() {
    return (
-      <View style={styles.toolbarContainer}>
-        <Header
-          leftComponent={{ icon: 'menu', color: 'white' }}
-          rightComponent={{ text: 'CAR LINE', style: { color: 'white'} }}
-          backgroundColor={colors.BLUE}
-        />
+      <View style={styles.listContainer}>
         <StudentList/>
       </View>
    );

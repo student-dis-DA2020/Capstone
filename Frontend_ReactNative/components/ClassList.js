@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { StyleSheet, View, Text, ActivityIndicator, FlatList, TouchableOpacity} from 'react-native';
 import API from '../config/environment'
@@ -5,13 +6,13 @@ import styles from '../config/styles'
 import colors from '../config/colors';
 
 
-export default class CarList extends React.Component {
+export default class ClassList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            timerId: '',
             loading: true,
-            cars:[]
+            students:[],
+            teacher: 'Jack Frost'
         };
     }
 

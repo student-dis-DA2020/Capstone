@@ -9,13 +9,14 @@ export default class StudentList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            timerId: '',
             loading: true,
             students:[]
         };
     }
 
-    componentDidMount(){
-        console.log('fetching students currently in line')
+    updateQueue() {
+        console.log('fetching cars currently in line')
         fetch(API.BASE_URL + API.CARLINE)
         .then(response => response.json())
         .then((responseJson)=> {
@@ -27,21 +28,38 @@ export default class StudentList extends React.Component {
         .catch(error=>console.log(error))
     }
 
+    componentDidMount(){
+        //update queue every 3 secs
+        const timerId = setInterval(() => this.updateQueue(), 3000); 
+        this.setState({
+            timerId: timerId 
+        })
+    }
+
+    componentWillUnmount() {
+        //stop the timer
+        clearInterval(timerID);
+    }
+
     renderItem = (data) => 
         <View style={styles.card}>
         <TouchableOpacity style={styles.listItem}>
-            <Text style={[styles.innerText, {textAlign: 'left'}]}>
-                {data.item._id}
-            </Text>
-            <Text style={[styles.innerText, {textAlign: 'left'}]}>
-                {data.item.name}
-            </Text>
-            <Text style={[styles.innerText, {textAlign: 'right', float: 'right'}]}>
-                {data.item.room}
-            </Text>
-            <Text style={[styles.innerText, {textAlign: 'right', float: 'right'}]}>
-                {data.item.teacher}
-            </Text>
+            <View style={styles.textRow}>
+                <Text style={[styles.rowItem]}>
+                    {data.item._id}
+                </Text>
+                <Text style={[styles.rowItem, {textAlign: 'right'}]}>
+                    {data.item.name}
+                </Text>
+            </View>
+            <View style={styles.textRow}>
+                <Text style={[styles.rowItem]}>
+                    {'Grade: ' + data.item.grade}
+                </Text>
+                <Text style={[styles.rowItem, {textAlign: 'right'}]}>
+                    {'Teacher: ' + data.item.teacher}
+                </Text>
+            </View>
         </TouchableOpacity>
         </View>
 
@@ -55,7 +73,8 @@ export default class StudentList extends React.Component {
        return(
         <View style={styles.listContainer}>
           <FlatList
-            data= {this.state.students}
+            //sort by position value
+            data= {this.state.students.sort((a, b) => (a.position > b.position) ? 1 : -1)}
             renderItem= {item=> this.renderItem(item)}
             keyExtractor= {item=>item._id.toString()}
           />

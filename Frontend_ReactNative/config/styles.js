@@ -21,10 +21,24 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     listItem:{
-      alignSelf: 'stretch',
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
       paddingVertical: 4,
       margin: 2,
       color: 'white'
+    },
+    textRow: {
+      flex: 1,
+      flexDirection: 'row',
+      alignSelf: 'stretch'
+    },
+    rowItem: {
+      flex: 1,
+      alignSelf: 'stretch',
+      padding: 6,
+      color: 'black',
+      fontSize: 18
     },
     innerText:{
       padding: 6,
