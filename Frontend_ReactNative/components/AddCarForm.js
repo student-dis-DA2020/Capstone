@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { StyleSheet, View, Text, ActivityIndicator, FlatList, TouchableOpacity} from 'react-native';
+import { StyleSheet, View, Text, ActivityIndicator, FlatList, TouchableOpacity, Button, KeyboardAvoidingView} from 'react-native';
 import API from '../config/environment'
 import styles from '../config/styles'
 import colors from '../config/colors';
@@ -16,12 +16,19 @@ export default class AddCarForm extends React.Component {
 
     render() {
         return (
-            <View style={{flex: 2}}>
-                <TextInput
+            <KeyboardAvoidingView style={{flex: 2, flexDirection: 'row'}}
+                behavior='padding'>
+                <TextInput style={{flex: 6}}
                     placeholder='Enter ID'
                     maxLength={3}
+                    keyboardType={'numeric'}
+                    returnKeyType='done'
                 />
-            </View>
+                <Button title='Add Car'
+                    backgroundColor={colors.BLUE}
+                    style={{flex: 1}}>
+                </Button>
+            </KeyboardAvoidingView>
         );
     }
 
