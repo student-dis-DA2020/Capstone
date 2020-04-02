@@ -1,44 +1,17 @@
 import React from 'react';
-import { StyleSheet, View, Text, ActivityIndicator, FlatList, TouchableOpacity} from 'react-native';
-import API from '../config/environment'
+import { View, Text, ActivityIndicator, FlatList, TouchableOpacity} from 'react-native';
 import styles from '../config/styles'
 import colors from '../config/colors';
+import { observer, inject } from 'mobx-react';
 
 
-export default class StudentList extends React.Component {
+class StudentList extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            timerId: '',
-            loading: true,
-            students:[]
-        };
-    }
-
-    updateQueue() {
-        console.log('fetching students currently in line')
-        fetch(API.BASE_URL + API.CARLINE)
-        .then(response => response.json())
-        .then((responseJson)=> {
-            this.setState({
-            loading: false,
-            students: responseJson
-            })
-        })
-        .catch(error=>console.log(error))
     }
 
     componentDidMount(){
-        //update queue every 3 secs
-        const timerId = setInterval(() => this.updateQueue(), 3000); 
-        this.setState({
-            timerId: timerId 
-        })
-    }
-
-    componentWillUnmount() {
-        //stop the timer
-        clearInterval(timerId);
+        this.props.CarLineStore.getCarLineQueueAsync();
     }
 
     renderItem = (data) => 
@@ -64,20 +37,25 @@ export default class StudentList extends React.Component {
         </View>
 
     render() {
-        if(this.state.loading){
-         return( 
-           <View style={styles.mainContainer}> 
-             <ActivityIndicator size="large" color={colors.BLUE}/>
-           </View>
-       )}
+        //render loading indicator (not working)
+    //     if(this.props.CarLineStore.loading){
+    //      return( 
+    //        <View style={styles.listContainer}> 
+    //          <ActivityIndicator size="large" color={colors.BLUE}/>
+    //        </View>
+    //    )}
        return(
         <View style={styles.listContainer}>
           <FlatList
-          //sort by position value
-            data= {this.state.students.sort((a, b) => (a.position > b.position) ? 1 : -1)}
+          //sort by position value (the slice stuff is req by MobX)
+            data= {this.props.CarLineStore.carLineData.cars.slice().sort(
+                (a, b) => (a.position > b.position) ? 1 : -1
+            )}
             renderItem= {item=> this.renderItem(item)}
             keyExtractor= {item=>item._id.toString()}
           />
        </View>
     )}
 };
+
+export default inject("CarLineStore")(observer(StudentList));
