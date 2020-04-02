@@ -25,7 +25,7 @@ export default class AddCarForm extends React.Component {
                     returnKeyType='done'
                 />
                 <Button title='Add Car'
-                    backgroundColor={colors.BLUE}
+                    color={colors.BLUE}
                     style={{flex: 1}}>
                 </Button>
             </KeyboardAvoidingView>
