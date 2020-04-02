@@ -16,7 +16,7 @@ export default class AddCarForm extends React.Component {
 
     render() {
         return (
-            <KeyboardAvoidingView style={{flex: 2, flexDirection: 'row'}}
+            <View style={{flex: 2, flexDirection: 'row'}}
                 behavior='padding'>
                 <TextInput style={{flex: 6}}
                     placeholder='Enter ID'
@@ -28,7 +28,7 @@ export default class AddCarForm extends React.Component {
                     color={colors.BLUE}
                     style={{flex: 1}}>
                 </Button>
-            </KeyboardAvoidingView>
+            </View>
         );
     }
 

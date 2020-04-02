@@ -38,12 +38,12 @@ class StudentList extends React.Component {
 
     render() {
         //render loading indicator (not working)
-    //     if(this.props.CarLineStore.loading){
-    //      return( 
-    //        <View style={styles.listContainer}> 
-    //          <ActivityIndicator size="large" color={colors.BLUE}/>
-    //        </View>
-    //    )}
+        if(this.props.CarLineStore.loading){
+         return( 
+           <View style={styles.listContainer}> 
+             <ActivityIndicator size="large" color={colors.BLUE}/>
+           </View>
+       )}
        return(
         <View style={styles.listContainer}>
           <FlatList

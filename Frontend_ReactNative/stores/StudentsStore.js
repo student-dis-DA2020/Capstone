@@ -1,4 +1,4 @@
-import { observable, runInAction, decorate } from 'mobx';
+import { observable, runInAction, decorate, action } from 'mobx';
 import StudentsService from '../services/StudentsService';
 
 class StudentsStore {
@@ -14,10 +14,11 @@ constructor(){
 
     getAllStudents = async () => {
         try {
+            this.loading = true;
             const data = await this.studentsService.getAll();
             runInAction(() => {
                 this.studentsData.students = data;
-                loading = false;
+                this.loading = false;
             });
         } catch (error) {
             runInAction(() => {
@@ -28,11 +29,11 @@ constructor(){
 
     getStudentsByTeacher = async (teacher) => {
         try {
+            this.loading = true;
             const data = await this.studentsService.getByTeacher(teacher);
-            console.log(data);
             runInAction(() => {
                 this.studentsData.class = data;
-                loading = false;
+                this.loading = false;
             });
         } catch (error) {
             runInAction(() => {
@@ -47,7 +48,9 @@ constructor(){
 decorate(StudentsStore, {
     studentsData: observable,
     status: observable,
-    loading: observable
+    loading: observable,
+    getAllStudents: action,
+    getStudentsByTeacher: action
 });
 
 export default new StudentsStore();

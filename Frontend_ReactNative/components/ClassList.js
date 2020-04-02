@@ -10,7 +10,7 @@ class ClassList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            teacher: 'Jack Frost'
+            teacher: 'Jack Frost',
         };
     }
 
@@ -37,12 +37,12 @@ class ClassList extends React.Component {
 
     render() {
         //render loading indicator (not working)
-    //     if(this.props.StudentsStore.loading){
-    //      return( 
-    //        <View style={styles.listContainer}> 
-    //          <ActivityIndicator size="large" color={colors.BLUE}/>
-    //        </View>
-    //    )}
+        if(this.props.StudentsStore.loading){
+         return( 
+           <View style={styles.listContainer}> 
+             <ActivityIndicator size="large" color={colors.BLUE}/>
+           </View>
+       )}
        //render list
        return(
         <View style={styles.listContainer}>
