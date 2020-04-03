@@ -1,7 +1,9 @@
 
 import React from 'react';
-import { View, Button } from 'react-native';
+import { View } from 'react-native';
+import { Button } from './Button'
 import colors from '../config/colors';
+import styles from '../config/styles'
 import { TextInput } from 'react-native-paper';
 import { observer, inject } from 'mobx-react';
 
@@ -33,8 +35,7 @@ class AddCarForm extends React.Component {
                 />
                 <Button title='Add Car'
                     onPress={() => this.addCar(this.state.inputValue)}
-                    color={colors.BLUE}
-                    style={{flex: 1}}>
+                    style={[styles.addCarButton, {flex: 2}]}>
                 </Button>
             </View>
         );
