@@ -14,15 +14,15 @@ const Students = ({ students }) => {
             <p class="card-text">
             <label>Parents: </label>
              <select id = "myList">
-             <option value = "1">{student.guardians[0]}</option>
-             <option value = "2">{student.guardians[1]}</option>
+              <option value = "1">{student.guardians[0]}</option>
+              <option value = "2">{student.guardians[1]}</option>
              </select>
             </p>
             <p class="card-text">Mode: {student.mode}</p>
             <p class="card-text">
             <label>parents car's: </label>
              <select id = "myList">
-             <option value = "1">{student.cars[0]}</option>
+               <option value = "1">{student.cars[0]}</option>
              </select>
             </p>
 
