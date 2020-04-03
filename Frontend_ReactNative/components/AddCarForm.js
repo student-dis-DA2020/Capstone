@@ -1,17 +1,23 @@
 
 import React from 'react';
-import { StyleSheet, View, Text, ActivityIndicator, FlatList, TouchableOpacity, Button, KeyboardAvoidingView} from 'react-native';
-import API from '../config/environment'
-import styles from '../config/styles'
+import { View, Button } from 'react-native';
 import colors from '../config/colors';
 import { TextInput } from 'react-native-paper';
+import { observer, inject } from 'mobx-react';
 
-export default class AddCarForm extends React.Component {
+class AddCarForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            inputValue : -1,
+            inputValue : "0",
         };
+    }
+
+    componentDidMount(){
+    }
+
+    addCar = async (input) => {
+        this.props.CarLineStore.addCarAsync(input, this.props.CarLineStore.maxPosition + 1);
     }
 
     render() {
@@ -23,13 +29,16 @@ export default class AddCarForm extends React.Component {
                     maxLength={3}
                     keyboardType={'numeric'}
                     returnKeyType='done'
+                    onChangeText={(inputValue) => this.setState({inputValue})}
                 />
                 <Button title='Add Car'
+                    onPress={() => this.addCar(this.state.inputValue)}
                     color={colors.BLUE}
                     style={{flex: 1}}>
                 </Button>
             </View>
         );
     }
-
 }
+
+export default inject("CarLineStore")(observer(AddCarForm));
