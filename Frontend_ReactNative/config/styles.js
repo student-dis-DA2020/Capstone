@@ -65,6 +65,23 @@ const styles = StyleSheet.create({
       justifyContent: 'space-around',
       padding: 10
     },
+    addCarButton:{
+      marginRight:5,
+      marginLeft:5,
+      marginTop:5,
+      paddingTop:5,
+      paddingBottom:5,
+      backgroundColor: colors.BLUE,
+      borderRadius:5,
+      borderWidth: 1,
+      borderColor:colors.DARK_BLUE 
+    },
+    buttonText:{
+      color:'white',
+      textAlign:'center',
+      fontSize: 20,
+      padding: 10,
+    }
 });
 
 export default styles;
