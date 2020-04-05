@@ -1,8 +1,10 @@
-import React from 'react'
-
+import React from 'react';
+import add_student from './Add_student.js';
 
 const Students = ({ students }) => {
   return (
+
+
     <div>
       <center><h1>Student List</h1></center>
       <center><div class = "row">
@@ -13,7 +15,7 @@ const Students = ({ students }) => {
             <div class="card-body">
               <h5 class="card-title">{student._id}</h5>
               <h6 class="card-subtitle mb-2 text-muted">{student.name}</h6>
-              <li class="list-group-item">Teacher: {student.teacher} </li>
+              <li class="list-group-item"> Teacher: {student.teacher} </li>
               <li class="list-group-item"> Bus number: {student.bus}</li>
               <li class="list-group-item"> Class Room: {student.room}</li>
               <li class="list-group-item"> Students Grade: {student.grade}</li>
