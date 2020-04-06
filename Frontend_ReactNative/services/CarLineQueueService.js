@@ -24,7 +24,7 @@ class CarLineQueueService {
         const options = {
             method: "DELETE",
         }
-        const request = new Request(webApiUrl + "/" + id, options);
+        const request = new Request(API.BASE_URL + API.CARLINE + "/" + id, options);
         const response = await fetch(request);
         return response;
     }

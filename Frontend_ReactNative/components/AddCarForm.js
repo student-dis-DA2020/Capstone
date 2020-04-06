@@ -2,7 +2,6 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Button } from './Button'
-import colors from '../config/colors';
 import styles from '../config/styles'
 import { TextInput } from 'react-native-paper';
 import { observer, inject } from 'mobx-react';
