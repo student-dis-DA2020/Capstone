@@ -36,7 +36,7 @@ class ClassList extends React.Component {
         </View>
 
     render() {
-        //render loading indicator (not working)
+        //render loading indicator 
         if(this.props.StudentsStore.loading){
          return( 
            <View style={styles.listContainer}> 
