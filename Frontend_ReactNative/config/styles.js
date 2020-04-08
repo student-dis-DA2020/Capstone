@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
       backgroundColor: colors.OFF_WHITE,
       alignItems: 'center',
       justifyContent: 'center',
-      padding: 8
+      padding: 5
     },
     toolbarContainer: {
       flex: 1,
@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
       marginRight:5,
       marginLeft:5,
       marginTop:5,
+      marginBottom:5,
       paddingTop:5,
       paddingBottom:5,
       backgroundColor: colors.BLUE,

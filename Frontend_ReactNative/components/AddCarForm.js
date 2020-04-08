@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { View } from 'react-native';
 import { Button } from './Button'
 import styles from '../config/styles'
@@ -13,12 +13,12 @@ class AddCarForm extends React.Component {
             inputValue : "0",
         };
     }
-
+    
     componentDidMount(){
     }
 
     addCar = async (input) => {
-        this.props.CarLineStore.addCarAsync(input, this.props.CarLineStore.maxPosition + 1);
+        await this.props.CarLineStore.addCarAsync(input, this.props.CarLineStore.maxPosition + 1);
     }
 
     render() {

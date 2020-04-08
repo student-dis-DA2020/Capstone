@@ -34,7 +34,6 @@ constructor(){
 
     addCarAsync = async (id, position) => {
         try {
-            this.loading = true;
             const response = await this.carLineQueueService.postWithPosition(id, position);
             runInAction(() => {
                 this.status = "success";
