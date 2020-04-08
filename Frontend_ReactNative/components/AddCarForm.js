@@ -25,7 +25,7 @@ class AddCarForm extends React.Component {
         return (
             <View style={{flex: 2, flexDirection: 'row'}}
                 behavior='padding'>
-                <TextInput style={{flex: 6}}
+                <TextInput style={{flex: 6, height: 30, justifyContent: 'center'}}
                     placeholder='Enter ID'
                     maxLength={3}
                     keyboardType={'numeric'}

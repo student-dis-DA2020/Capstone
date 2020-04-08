@@ -12,7 +12,7 @@ export default class Cars extends React.Component {
         <View style={styles.listContainer}>
           <CarList/>
         </View>
-        <View style={[styles.listContainer, {flex: 1}]}>
+        <View style={[styles.addCarFormContainer, {flex: 1}]}>
           <AddCarForm/>
         </View>
       </View>

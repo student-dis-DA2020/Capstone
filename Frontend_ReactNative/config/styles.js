@@ -52,7 +52,16 @@ const styles = StyleSheet.create({
       backgroundColor: colors.OFF_WHITE,
       alignItems: 'center',
       justifyContent: 'center',
-      padding: 5
+      padding: 5,
+    },
+    addCarFormContainer: {
+      flexDirection: 'row',
+      marginBottom: 10,
+      padding: 5,
+      flexWrap: 'wrap',
+      backgroundColor: colors.OFF_WHITE,
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     toolbarContainer: {
       flex: 1,
@@ -66,6 +75,8 @@ const styles = StyleSheet.create({
       padding: 10
     },
     addCarButton:{
+      alignContent: 'center',
+      justifyContent: 'center',
       marginRight:5,
       marginLeft:5,
       marginTop:5,
@@ -81,7 +92,7 @@ const styles = StyleSheet.create({
       color:'white',
       textAlign:'center',
       fontSize: 20,
-      padding: 10,
+      padding: 5,
     }
 });
 

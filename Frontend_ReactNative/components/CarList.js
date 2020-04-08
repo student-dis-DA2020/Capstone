@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, ActivityIndicator, FlatList, TouchableOpacity} from 'react-native';
+import { SwipeableFlatList } from 'react-native-swipeable-flat-list';
 import styles from '../config/styles'
 import colors from '../config/colors';
 import { observer, inject } from 'mobx-react';
@@ -12,6 +13,10 @@ class CarList extends React.Component {
 
     componentDidMount() {
         this.props.CarLineStore.getCarLineQueueAsync();
+    }
+
+    deleteCar = async (id) => {
+        await this.props.CarLineStore.deleteCar(id);
     }
 
     renderItem = (data) => 
@@ -39,6 +44,7 @@ class CarList extends React.Component {
        //render list
        return(
         <View style={styles.listContainer}>
+          {/* <SwipeableFlatList */}
           <FlatList
             //sort by position value (the slice stuff is req by MobX)
             data= {this.props.CarLineStore.carLineData.cars.slice().sort(
@@ -46,6 +52,13 @@ class CarList extends React.Component {
             )}
             renderItem= {item=> this.renderItem(item)}
             keyExtractor= {item=>item._id.toString()}
+            // renderLeft={() => (
+			// 	<Text style={{ width: 40 }}>Left Label</Text>
+			// )}
+			// renderRight={() => (
+			// 	<Text style={{ width: 100 }}>Right Label</Text>
+			// )}
+			// backgroundColor={'white'}
           />
        </View>
     )}

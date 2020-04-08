@@ -18,24 +18,62 @@ import Students from "../screens/Students";
 const activeTintLabelColor = 'white';
 const inactiveTintLabelColor = 'grey';
 
-const CarLineTabNavigator = createMaterialTopTabNavigator({
-  Cars: {
-    screen: Cars,
-    navigationOptions: {
-      backgroundColor: colors.BLUE,
-      inactiveTintColor: colors.BLUE,
-      tabBarColor: colors.LIGHT_BLUE
-    }
+// const CarLineTabNavigator = createMaterialTopTabNavigator({
+//   Cars: {
+//     screen: Cars,
+//     navigationOptions: {
+//       indicatorStyle: {
+//         height: '100%',
+//         backgroundColor: colors.BLUE,
+//       }
+//     }
+//   },
+//   Students: {
+//     screen: Students,
+//     navigationOptions: {
+//       indicatorStyle: {
+//         height: '100%',
+//         backgroundColor: colors.BLUE,
+//       }
+//     }
+//   }
+// });
+const CarLineTabNavigator = createMaterialTopTabNavigator(
+  {
+    "Cars": { screen: Cars },
+    "Students": { screen: Students },
   },
-  Students: {
-    screen: Students,
-    navigationOptions: {
-      activeTintColor: colors.BLUE,
-      inactiveTintColor: colors.BLUE,
-      tabBarColor: colors.LIGHT_BLUE
-    }
+  {
+    tabBarPosition: 'top',
+    swipeEnabled: true,
+    animationEnabled: true,
+    tabBarOptions: {
+      upperCaseLabel: false,
+      scrollEnabled: true,
+      activeTintColor: 'black',
+      inactiveTintColor: 'rgb(180, 180, 180)',
+      pressColor: colors.DARK_BLUE,
+      style: {
+        boxShadow: 'none',
+        backgroundColor: colors.LIGHT_BLUE,
+        numberOfLines: 1,
+        alignContent: 'center'
+      },
+      tabStyle: {
+        //
+        alignContent: 'center'
+      },
+      labelStyle: {
+        fontSize: 15,
+        textAlign: 'center',
+      },
+      indicatorStyle: {
+        borderBottomColor: colors.RED,
+        borderBottomWidth: 4,
+      },
+    },
   }
-});
+);
 
 const TabNavigator = createMaterialBottomTabNavigator({
   Home: {
