@@ -44,24 +44,19 @@ const CarLineTabNavigator = createMaterialTopTabNavigator(
     "Students": { screen: Students },
   },
   {
-    tabBarPosition: 'top',
     swipeEnabled: true,
     animationEnabled: true,
     tabBarOptions: {
       upperCaseLabel: false,
-      scrollEnabled: true,
       activeTintColor: 'black',
       inactiveTintColor: 'rgb(180, 180, 180)',
       pressColor: colors.DARK_BLUE,
       style: {
         boxShadow: 'none',
         backgroundColor: colors.LIGHT_BLUE,
-        numberOfLines: 1,
         alignContent: 'center'
       },
       tabStyle: {
-        //
-        alignContent: 'center'
       },
       labelStyle: {
         fontSize: 15,
