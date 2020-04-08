@@ -1,9 +1,11 @@
 import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack"
 import { createBottomTabNavigator, createMaterialTopTabNavigator } from "react-navigation-tabs";
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import CustomHeader from '../components/CustomHeader';
 import colors from '../config/colors'
 import {styles} from '../config/styles'
 
@@ -20,7 +22,7 @@ const CarLineTabNavigator = createMaterialTopTabNavigator({
   Cars: {
     screen: Cars,
     navigationOptions: {
-      activeTintColor: colors.BLUE,
+      backgroundColor: colors.BLUE,
       inactiveTintColor: colors.BLUE,
       tabBarColor: colors.LIGHT_BLUE
     }
@@ -78,4 +80,18 @@ const TabNavigator = createMaterialBottomTabNavigator({
   }
 });
 
-export default createAppContainer(TabNavigator);
+const StackNavigator = createStackNavigator({
+  TabNavigator:{
+    screen: TabNavigator,
+    navigationOptions: {
+        header:() => 
+          <CustomHeader title='School Dismissal App' icon='home'/>,
+        headerStyle: {
+          backgroundColor: colors.BLUE
+        }
+    }
+  }
+});
+
+
+export default createAppContainer(StackNavigator);
