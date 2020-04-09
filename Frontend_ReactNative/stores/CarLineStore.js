@@ -100,6 +100,7 @@ constructor(){
         return -1;
     }
 
+    //returns the id of the car at a particular index in the array
     findIdByIndex = (index) => {
         return this.cars[index]._id;
     }

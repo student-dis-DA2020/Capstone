@@ -29,12 +29,12 @@ const styles = StyleSheet.create({
       color: 'white'
     },
     textRow: {
-      flex: 1,
+      flex: 10,
       flexDirection: 'row',
       alignSelf: 'stretch'
     },
     rowItem: {
-      flex: 1,
+      flex: 3,
       alignSelf: 'stretch',
       padding: 6,
       color: 'black',
@@ -48,7 +48,6 @@ const styles = StyleSheet.create({
     listContainer: {
       flex: 8,
       flexDirection: 'row',
-      flexWrap: 'wrap',
       backgroundColor: colors.OFF_WHITE,
       alignItems: 'center',
       justifyContent: 'center',

@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, ActivityIndicator, FlatList, TouchableOpacity} from 'react-native';
 import styles from '../config/styles'
 import colors from '../config/colors';
+import { IconButton } from 'react-native-paper';
 import { observer, inject } from 'mobx-react';
 
 
@@ -14,6 +15,14 @@ class StudentList extends React.Component {
         this.props.CarLineStore.getCarLineQueueAsync();
     }
 
+    deleteStudent = async (id) => {
+        try {
+            await this.props.CarLineStore.deleteCarAsync(id);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
     renderItem = (data) => 
         <View style={styles.card}>
         <TouchableOpacity style={styles.listItem}>
@@ -21,9 +30,15 @@ class StudentList extends React.Component {
                 <Text style={[styles.rowItem]}>
                     {data.item._id}
                 </Text>
-                <Text style={[styles.rowItem, {textAlign: 'right'}]}>
+                <Text style={[styles.rowItem]}>
                     {data.item.name}
                 </Text>
+                <IconButton
+                    icon='trash-can-outline'
+                    color={colors.RED}
+                    size={30}
+                    onPress={() => this.deleteStudent(data.item._id)}
+                />
             </View>
             <View style={styles.textRow}>
                 <Text style={[styles.rowItem]}>
