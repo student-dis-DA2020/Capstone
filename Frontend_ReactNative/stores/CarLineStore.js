@@ -12,11 +12,27 @@ constructor(){
     loading = true;
     maxPosition = 0;
 
+    updateQueueAsync = async () => {
+        try{
+            const data = await this.carLineQueueService.getAll();
+            //sort by position in queue
+            this.carLineData.cars = data;
+            let sortedArr = data.sort(
+                (a, b) => (a.position > b.position) ? 1 : -1
+            );
+            //if the queue is not empty update the max position
+            if (sortedArr.length > 0) {
+                this.maxPosition = sortedArr[sortedArr.length - 1].position
+            }
+            this.loading = false;
+        }catch (error) {
+            this.status = "error";
+        }
+    }
+
     getCarLineQueueAsync = async () => {
         try {
-            //only show loading animation if its the first time loading the data
-            if (this.carLineData.cars.slice().length > 0)
-                this.loading = true;
+            this.loading = true;
             const data = await this.carLineQueueService.getAll();
             runInAction(() => {
                 //sort by position in queue
@@ -43,7 +59,7 @@ constructor(){
             runInAction(() => {
                 this.status = "success";
                 this.loading = false;
-                this.getCarLineQueueAsync();
+                this.updateQueueAsync();
             });
         } catch (error) {
             runInAction(() => {
@@ -59,7 +75,7 @@ constructor(){
             runInAction(() => {
                 this.status = "success";
                 this.loading = false;
-                this.getCarLineQueueAsync();
+                this.updateQueueAsync();
             })
         } catch (error) {
             runInAction(() => {
