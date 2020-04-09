@@ -10,11 +10,13 @@ constructor(){
     };
     status = "initial";
     loading = true;
-    maxPosition = -1;
+    maxPosition = 0;
 
     getCarLineQueueAsync = async () => {
         try {
-            this.loading = true;
+            //only show loading animation if its the first time loading the data
+            if (this.carLineData.cars.slice().length > 0)
+                this.loading = true;
             const data = await this.carLineQueueService.getAll();
             runInAction(() => {
                 //sort by position in queue
@@ -22,7 +24,10 @@ constructor(){
                 let sortedArr = data.sort(
                     (a, b) => (a.position > b.position) ? 1 : -1
                 );
-                this.maxPosition = sortedArr[sortedArr.length - 1].position
+                //if the queue is not empty update the max position
+                if (sortedArr.length > 0) {
+                    this.maxPosition = sortedArr[sortedArr.length - 1].position
+                }
                 this.loading = false;
             });
         } catch (error) {
@@ -50,14 +55,12 @@ constructor(){
 
     deleteCarAsync = async (id) => {
         try {
-            this.loading = true;
             const response = await this.carLineQueueService.delete(id)
-            if (response.status === 200) {
-                runInAction(() => {
-                    this.status = "success";
-                    this.loading = false;
-                })
-            } 
+            runInAction(() => {
+                this.status = "success";
+                this.loading = false;
+                this.getCarLineQueueAsync();
+            })
         } catch (error) {
             runInAction(() => {
                 this.status = "error";

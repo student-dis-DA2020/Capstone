@@ -18,26 +18,6 @@ import Students from "../screens/Students";
 const activeTintLabelColor = 'white';
 const inactiveTintLabelColor = 'grey';
 
-// const CarLineTabNavigator = createMaterialTopTabNavigator({
-//   Cars: {
-//     screen: Cars,
-//     navigationOptions: {
-//       indicatorStyle: {
-//         height: '100%',
-//         backgroundColor: colors.BLUE,
-//       }
-//     }
-//   },
-//   Students: {
-//     screen: Students,
-//     navigationOptions: {
-//       indicatorStyle: {
-//         height: '100%',
-//         backgroundColor: colors.BLUE,
-//       }
-//     }
-//   }
-// });
 const CarLineTabNavigator = createMaterialTopTabNavigator(
   {
     "Cars": { screen: Cars },

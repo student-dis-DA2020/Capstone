@@ -4,6 +4,8 @@ import { SwipeableFlatList } from 'react-native-swipeable-flat-list';
 import styles from '../config/styles'
 import colors from '../config/colors';
 import { observer, inject } from 'mobx-react';
+import { IconButton } from 'react-native-paper';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 
 class CarList extends React.Component {
@@ -16,7 +18,11 @@ class CarList extends React.Component {
     }
 
     deleteCar = async (id) => {
-        await this.props.CarLineStore.deleteCar(id);
+        try {
+            await this.props.CarLineStore.deleteCarAsync(id);
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     renderItem = (data) => 
@@ -29,6 +35,12 @@ class CarList extends React.Component {
                 <Text style={[styles.rowItem, {textAlign: 'right'}]}>
                     {data.item.cars[0]}
                 </Text>
+                <IconButton
+                    icon='trash-can-outline'
+                    color={colors.RED}
+                    size={30}
+                    onPress={() => this.deleteCar(data.item._id)}
+                />
             </View>
         </TouchableOpacity>
         </View>
