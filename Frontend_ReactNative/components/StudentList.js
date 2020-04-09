@@ -48,7 +48,7 @@ class StudentList extends React.Component {
         <View style={styles.listContainer}>
           <FlatList
           //sort by position value (the slice stuff is req by MobX)
-            data= {this.props.CarLineStore.carLineData.cars.slice().sort(
+            data= {this.props.CarLineStore.cars.slice().sort(
                 (a, b) => (a.position > b.position) ? 1 : -1
             )}
             renderItem= {item=> this.renderItem(item)}

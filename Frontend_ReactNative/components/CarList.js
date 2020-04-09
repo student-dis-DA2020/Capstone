@@ -5,7 +5,6 @@ import styles from '../config/styles'
 import colors from '../config/colors';
 import { observer, inject } from 'mobx-react';
 import { IconButton } from 'react-native-paper';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 
 class CarList extends React.Component {
@@ -25,10 +24,40 @@ class CarList extends React.Component {
         }
     }
 
+    moveUp = async (id) => {
+        try {
+            await this.props.CarLineStore.moveUpAsync(id);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    moveDown = async (id) => {
+        try {
+            await this.props.CarLineStore.moveDownAsync(id);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+    //this method renders each individual car card
     renderItem = (data) => 
         <View style={styles.card}>
         <TouchableOpacity style={styles.listItem}>
             <View style={styles.textRow}>
+                <View style={{flexDirection: 'column'}}>
+                    <IconButton
+                        icon='arrow-up-bold'
+                        color={colors.BLUE}
+                        size={15}
+                        onPress={() => this.moveUp(data.item._id)}
+                    />
+                    <IconButton
+                        icon='arrow-down-bold'
+                        color={colors.BLUE}
+                        size={15}
+                        onPress={() => this.moveDown(data.item._id)}
+                    />
+                </View>
                 <Text style={[styles.rowItem]}>
                     {data.item._id}
                 </Text>
@@ -59,7 +88,7 @@ class CarList extends React.Component {
           {/* <SwipeableFlatList */}
           <FlatList
             //sort by position value (the slice stuff is req by MobX)
-            data= {this.props.CarLineStore.carLineData.cars.slice().sort(
+            data= {this.props.CarLineStore.cars.slice().sort(
                 (a, b) => (a.position > b.position) ? 1 : -1
             )}
             renderItem= {item=> this.renderItem(item)}
