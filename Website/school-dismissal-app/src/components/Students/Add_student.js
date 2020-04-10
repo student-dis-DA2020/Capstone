@@ -43,7 +43,7 @@ class Add_student extends React.Component {
 
       handleSubmit(event) {
         event.preventDefault();
-        this.props.onFormSubmit(this.state);
+        //this.props.onFormSubmit(this.state);
         this.setState(this.initialState);
       }
 
@@ -79,7 +79,7 @@ class Add_student extends React.Component {
                       <Form.Control
                         type="text"
                         name="gaurdians"
-                        value={this.state.gaurdians[0]}
+                        value={this.state.gaurdians}
                         onChange={this.handleChange}
                         placeholder="gaurdians" />
                     </Form.Group>
