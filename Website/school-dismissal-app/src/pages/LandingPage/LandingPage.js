@@ -22,6 +22,12 @@ class LandingPage extends Component {
       
     }
 
+
+
+
+
+
+    
     
     onCreate() {
         this.setState({ isAddstudent: true });
@@ -49,7 +55,6 @@ class LandingPage extends Component {
         <div className="App">
         <Container>
         <PageLayout>
-        <h1 style={{textAlign:'center'}}>React Tutorial</h1>
           {!this.state.isAddstudent && <Button variant="primary" onClick={() => this.onCreate()}>Add student</Button>}
           {this.state.response.status === 'success' && <div><br /><Alert variant="info">{this.state.response.message}</Alert></div>}
           {!this.state.isAddstudent && <studentList editstudent={this.editstudent}/>}
