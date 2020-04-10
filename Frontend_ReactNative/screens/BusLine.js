@@ -1,22 +1,16 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { View } from 'react-native';
+import  BusList from '../components/BusList'
+import styles from '../config/styles';
 
 export default class BusLine extends React.Component {
   render() {
    return (
-      <View style={styles.container}>
-          <Text>Bus Line screen coming....</Text>
+      <View style={styles.mainContainer}>
+        <View style={styles.listContainer}>
+          <BusList/>
+        </View>
       </View>
    );
   }
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F1FAEE',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 8
-  }
-});
+}
