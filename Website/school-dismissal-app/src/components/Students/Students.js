@@ -1,5 +1,19 @@
 import React from 'react';
-import add_student from './Add_student.js';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const Students = ({ students }) => {
   return (
@@ -38,7 +52,7 @@ const Students = ({ students }) => {
                   </select>
                 </p>
               </li>
-              <a href="#" class="btn btn-primary">edit</a>
+              <a href="Add_student" class="btn btn-primary">edit</a>
             </div>
           </div>
         </div>
