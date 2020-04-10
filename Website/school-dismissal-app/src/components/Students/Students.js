@@ -43,7 +43,6 @@ const Students = ({ students }) => {
                   </select>
                 </p>
               </li>
-              <li class="list-group-item">Mode: {student.mode}</li>
               <li class="list-group-item">
                 <p class="card-text">
                   <label>parents car's: </label>
@@ -52,7 +51,7 @@ const Students = ({ students }) => {
                   </select>
                 </p>
               </li>
-              <a href="Add_student" class="btn btn-primary">edit</a>
+              <a href="#" class="btn btn-primary">edit</a>
             </div>
           </div>
         </div>
