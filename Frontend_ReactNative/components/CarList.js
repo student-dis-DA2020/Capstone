@@ -12,8 +12,22 @@ class CarList extends React.Component {
         super(props);
     }
 
+    //makes a call to the api to update the list
+    updateQueue = async () => {
+        this.props.CarLineStore.updateQueueAsync();
+    }
+
     componentDidMount() {
         this.props.CarLineStore.getCarLineQueueAsync();
+        //update the queue every 3 seconds when open
+        setInterval(() => this.updateQueue(), 3000);
+    }
+
+    //TODO: this never happens with react-navigation.  Always stays mounted with tabNavigator so
+    //the app makes those API calls every 3 seconds until the app closes
+    componentWillUnmount() {
+        //quit checking the queue
+        clearInterval();
     }
 
     deleteCar = async (id) => {
