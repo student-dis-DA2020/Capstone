@@ -926,6 +926,11 @@
     pouchdb-collections "^1.0.1"
     tiny-queue "^0.2.1"
 
+"@gregfrench/react-native-wheel-picker@^1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@gregfrench/react-native-wheel-picker/-/react-native-wheel-picker-1.2.3.tgz#56a6f3365485697c15067270c15f2feb07251836"
+  integrity sha512-qegoivsee11fcOUQDVZzgyhYBHMMl5ejOWCky8X8XGi7fOFS0DTTG78Rrlx1UNEGTMAOr9UdpE+XJgSnJ0CX3g==
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -4521,6 +4526,11 @@ react-native-web@~0.11.7:
     normalize-css-color "^1.0.2"
     prop-types "^15.6.0"
     react-timer-mixin "^0.13.4"
+
+react-native-wheel-picker@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-wheel-picker/-/react-native-wheel-picker-1.2.0.tgz#0503e37b3326856724501679bdf5697e0dd247a6"
+  integrity sha1-BQPjezMmhWckUBZ5vfVpfg3SR6Y=
 
 "react-native@https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz":
   version "0.61.4"
