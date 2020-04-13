@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { View, Text, ActivityIndicator, FlatList, TouchableOpacity} from 'react-native';
+import { View, Text, ActivityIndicator, FlatList, TouchableOpacity, Picker} from 'react-native';
 import styles from '../config/styles'
 import colors from '../config/colors';
 import { observer, inject } from 'mobx-react';
@@ -45,7 +45,7 @@ class ClassList extends React.Component {
        )}
        //render list
        return(
-        <View style={styles.listContainer}>
+        <View style={styles.listContainer}>  
           <FlatList
             //sort by position value
             data= {this.props.StudentsStore.studentsData.class.slice().sort(

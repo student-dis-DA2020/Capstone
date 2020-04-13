@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ActivityIndicator, FlatList, TouchableOpacity} from 'react-native';
+import { View, Text, ActivityIndicator, FlatList, TouchableOpacity, Picker } from 'react-native';
 import { SwipeableFlatList } from 'react-native-swipeable-flat-list';
 import styles from '../config/styles'
 import colors from '../config/colors';
@@ -10,10 +10,37 @@ import { IconButton } from 'react-native-paper';
 class CarList extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            selectedItem : 0,
+            cars: []
+        }
+    }
+
+    onPickerSelect (index) {
+		this.setState({
+			selectedItem: index,
+		})
+	}
+
+    //makes a call to the api to update the list
+    updateQueue = async () => {
+        this.props.CarLineStore.updateQueueAsync();
     }
 
     componentDidMount() {
         this.props.CarLineStore.getCarLineQueueAsync();
+        this.setState({
+            cars: this.props.CarLineStore.cars.slice()
+        });
+        //update the queue every 3 seconds when open
+        setInterval(() => this.updateQueue(), 3000);
+    }
+
+    //TODO: this never happens with react-navigation.  Always stays mounted with tabNavigator so
+    //the app makes those API calls every 3 seconds until the app closes
+    componentWillUnmount() {
+        //quit checking the queue
+        clearInterval();
     }
 
     deleteCar = async (id) => {
@@ -61,9 +88,18 @@ class CarList extends React.Component {
                 <Text style={[styles.rowItem]}>
                     {data.item._id}
                 </Text>
-                <Text style={[styles.rowItem, {textAlign: 'right'}]}>
-                    {data.item.cars[0]}
-                </Text>
+                <Picker
+                selectedValue={this.state.selectedItem}
+                style={styles.rowItem}
+                itemStyle={{height: 44}}
+                onValueChange={(key) => this.setState({selectedItem: key})}
+                >
+                    {/* this maps the cars array from the student object and populates a picker if there is more
+                    than one */}
+                    {data.item.cars.map((item, index) => {
+                        return (<Picker.Item label={item} value={index} key={index}/>) 
+                    })}
+                </Picker>
                 <IconButton
                     icon='trash-can-outline'
                     color={colors.RED}

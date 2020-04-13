@@ -8,11 +8,11 @@ class Add_student extends React.Component {
       this.initialState = {
           _id: '',
           name: '', 
-          guardians: '',
+          guardians: [],
           grade: '',
           room: '',
           teacher: '',
-          cars: '',
+          cars: [],
           position: '',
           bus: '',
           mode: '',
@@ -43,7 +43,7 @@ class Add_student extends React.Component {
 
       handleSubmit(event) {
         event.preventDefault();
-        this.props.onFormSubmit(this.state);
+        //this.props.onFormSubmit(this.state);
         this.setState(this.initialState);
       }
 
@@ -79,7 +79,7 @@ class Add_student extends React.Component {
                       <Form.Control
                         type="text"
                         name="gaurdians"
-                        value={this.state.gaurdians[0]}
+                        value={this.state.guardians[0]}
                         onChange={this.handleChange}
                         placeholder="gaurdians" />
                     </Form.Group>
@@ -87,7 +87,7 @@ class Add_student extends React.Component {
                     <Form.Group controlId="grade">
                       <Form.Label>grade</Form.Label>
                       <Form.Control
-                        type="text"
+                        type="number"
                         name="grade"
                         value={this.state.grade}
                         onChange={this.handleChange}
@@ -97,7 +97,7 @@ class Add_student extends React.Component {
                     <Form.Group controlId="room">
                       <Form.Label>room</Form.Label>
                       <Form.Control
-                        type="text"
+                        type="number"
                         name="room"
                         value={this.state.room}
                         onChange={this.handleChange}
@@ -115,19 +115,19 @@ class Add_student extends React.Component {
                     </Form.Group>
 
                     <Form.Group controlId="cars">
-                      <Form.Label>grade</Form.Label>
+                      <Form.Label>cars</Form.Label>
                       <Form.Control
                         type="text"
                         name="cars"
-                        value={this.state.cars[0]}
+                        value={this.state.cars}
                         onChange={this.handleChange}
                         placeholder="cars" />
                     </Form.Group>
 
                     <Form.Group controlId="position">
-                      <Form.Label>grade</Form.Label>
+                      <Form.Label>position</Form.Label>
                       <Form.Control
-                        type="text"
+                        type="number"
                         name="position"
                         value={this.state.position}
                         onChange={this.handleChange}
@@ -135,7 +135,7 @@ class Add_student extends React.Component {
                     </Form.Group>
 
                     <Form.Group controlId="bus">
-                      <Form.Label>grade</Form.Label>
+                      <Form.Label>bus</Form.Label>
                       <Form.Control
                         type="text"
                         name="bus"
@@ -145,7 +145,7 @@ class Add_student extends React.Component {
                     </Form.Group>
 
                     <Form.Group controlId="mode">
-                      <Form.Label>grade</Form.Label>
+                      <Form.Label>mode</Form.Label>
                       <Form.Control
                         type="text"
                         name="mode"
@@ -153,20 +153,9 @@ class Add_student extends React.Component {
                         onChange={this.handleChange}
                         placeholder="mode" />
                     </Form.Group>
-
-                      <Form.Group controlId="position">
-                      <Form.Label>grade</Form.Label>
-                      <Form.Control
-                        type="text"
-                        name="position"
-                        value={this.state.position}
-                        onChange={this.handleChange}
-                        placeholder="position" />
-                    </Form.Group>
-
                     
                     <Form.Group controlId="waiting">
-                      <Form.Label>grade</Form.Label>
+                      <Form.Label>waiting</Form.Label>
                       <Form.Control
                         type="text"
                         name="waiting"

@@ -1,5 +1,19 @@
 import React from 'react';
-import add_student from './Add_student.js';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const Students = ({ students }) => {
   return (
@@ -29,7 +43,6 @@ const Students = ({ students }) => {
                   </select>
                 </p>
               </li>
-              <li class="list-group-item">Mode: {student.mode}</li>
               <li class="list-group-item">
                 <p class="card-text">
                   <label>parents car's: </label>
