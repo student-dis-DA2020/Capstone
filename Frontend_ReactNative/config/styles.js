@@ -31,11 +31,11 @@ const styles = StyleSheet.create({
     textRow: {
       flex: 10,
       flexDirection: 'row',
-      alignSelf: 'stretch'
+      // alignSelf: 'stretch'
     },
     rowItem: {
       flex: 3,
-      alignSelf: 'stretch',
+      // alignSelf: 'stretch',
       padding: 6,
       color: 'black',
       fontSize: 18
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
       marginBottom: 10,
       padding: 5,
       flexWrap: 'wrap',
-      backgroundColor: colors.OFF_WHITE,
+      backgroundColor: colors.LIGHT_BLUE,
       alignItems: 'center',
       justifyContent: 'center',
     },

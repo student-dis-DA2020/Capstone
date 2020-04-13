@@ -1,11 +1,15 @@
 import React from 'react';
 import { View } from 'react-native';
 import  CarList from '../components/CarList'
-import CustomHeader from '../components/CustomHeader'
 import styles from '../config/styles';
 import AddCarForm from '../components/AddCarForm';
+import { observer, inject } from 'mobx-react';
 
-export default class Cars extends React.Component {
+class Cars extends React.Component {
+  constructor(props) {
+      super(props);
+  }
+
   render() {
    return (
       <View style={styles.mainContainer}>
@@ -19,3 +23,5 @@ export default class Cars extends React.Component {
    );
   }
 };
+
+export default inject("CarLineStore")(observer(Cars));

@@ -85,12 +85,13 @@ class CarList extends React.Component {
                         onPress={() => this.moveDown(data.item._id)}
                     />
                 </View>
-                <Text style={[styles.rowItem]}>
+                <Text style={[styles.rowItem], 
+                    {flex: 8, fontSize: 25, alignSelf: 'center', marginStart: 10, fontWeight: "700"}}>
                     {data.item._id}
                 </Text>
                 <Picker
                 selectedValue={this.state.selectedItem}
-                style={styles.rowItem}
+                style={[styles.rowItem], {flex: 8, alignSelf: 'center', fontWeight: "500"}}
                 itemStyle={{height: 44}}
                 onValueChange={(key) => this.setState({selectedItem: key})}
                 >
@@ -101,6 +102,7 @@ class CarList extends React.Component {
                     })}
                 </Picker>
                 <IconButton
+                    style={{alignSelf: 'center'}}
                     icon='trash-can-outline'
                     color={colors.RED}
                     size={30}
