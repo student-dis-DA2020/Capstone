@@ -167,6 +167,22 @@ constructor(){
             });
         }
     }
+
+    //this changes the waiting status of the car
+    changeWaitingStatusAsync = async (id) => {
+        try {
+            const response = await this.carLineQueueService.changeWaitingStatus(id)
+            runInAction(() => {
+                this.status = "success";
+                this.loading = false;
+                this.updateQueueAsync();
+            })
+        } catch (error) {
+            runInAction(() => {
+                this.status = "error";
+            });
+        }
+    }
 }
 
 decorate(CarLineStore, {
@@ -179,7 +195,8 @@ decorate(CarLineStore, {
     addCarAsync: action,
     deleteCarAsync: action,
     moveUpAsync: action,
-    moveDownAsync: action
+    moveDownAsync: action,
+    changeWaitingStatus: action
 });
 
 export default new CarLineStore();
