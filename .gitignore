@@ -42,3 +42,4 @@ API/src/main/resources/application-prod.properties
 Website/school-dismissal-app/node_modules
 Frontend_ReactNative/.expo/
 Frontend_ReactNative/node_modules
+API/src/main/resources/application-prod.properties

@@ -106,6 +106,15 @@ public class Student {
         return this.waiting;
     }
 
+    String email;
+    public Student setEmail(String email) {
+        this.email = email;
+        return this;
+    }
+    public String getEmail() {
+        return this.email;
+    }
+
     public Student() {}
     public Student(String name,
                        int grade,
@@ -116,7 +125,8 @@ public class Student {
                        int position,
                        int bus,
                        String mode,
-                       boolean waiting
+                       boolean waiting,
+                        String email
                        ) {
         this.name = name;
         this.grade = grade;
@@ -128,5 +138,6 @@ public class Student {
         this.bus = bus;
         this.mode = mode;
         this.waiting = waiting;
+        this.email = email;
     }
 }

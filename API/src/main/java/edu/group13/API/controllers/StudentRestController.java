@@ -1,8 +1,11 @@
 package edu.group13.API.controllers;
 
+import edu.group13.API.models.Mail;
 import edu.group13.API.models.Student;
 
 import edu.group13.API.repositories.StudentsAllRepository;
+import edu.group13.API.services.MailService;
+import edu.group13.API.services.MailServiceImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +22,8 @@ public class StudentRestController {
     //collection of all student data
     @Autowired
     private StudentsAllRepository studentsAllRepository;
+    @Autowired
+    private MailServiceImplementation mailService;
 
     //return list of all students
     @RequestMapping(value = "/all", method = RequestMethod.GET)
@@ -107,6 +112,28 @@ public class StudentRestController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(students, HttpStatus.OK);
+    }
+
+    //sends a pickup notification to the email address of the student
+    @RequestMapping(value = "/sendEmail/{_id}", method = RequestMethod.PUT)
+    public ResponseEntity<?> sendEmail(@PathVariable("_id") String _id) {
+        Student student = studentsAllRepository.findBy_id(_id);
+        String emailAddress = student.getEmail();
+        if (student == null || emailAddress == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        String mode = student.getMode();
+        Mail mail = new Mail();
+        mail.setMailFrom("Student.dis.DA2020@gmail.com");
+        mail.setMailTo(emailAddress);
+        mail.setMailSubject("Your child has been dismissed");
+        mail.setMailContent("Your child has just been sent home by " + mode +
+                " today.  You are receiving this message because you opted in to dismissal notifications.  " +
+                "Have a great day!");
+
+        mailService.sendEmail(mail);
+
+        return new ResponseEntity<>(student, HttpStatus.OK);
     }
 
 }
