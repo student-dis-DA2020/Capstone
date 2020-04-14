@@ -23,11 +23,6 @@ class LandingPage extends Component {
     }
 
 
-
-
-
-
-    
     
     onCreate() {
         this.setState({ isAddstudent: true });
@@ -80,10 +75,5 @@ class LandingPage extends Component {
             })
             .catch(console.log)
     }
-
-
-
 }
-
-
 export default withRouter(LandingPage);

@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import styles from './PageLayout.styles';
-import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import CustomButton from '../../components/CustomButton/CustomButton';
 

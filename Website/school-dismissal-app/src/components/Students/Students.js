@@ -1,20 +1,5 @@
 import React from 'react';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const Students = ({ students }) => {
   return (
 
