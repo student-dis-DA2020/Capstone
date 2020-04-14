@@ -37,7 +37,7 @@ constructor(){
     getBusLineQueueAsync = async () => {
         try {
             this.loading = true;
-            const data = await this.busLineQueueService.getAll();
+            const data = await this.busLineService.getAll();
             runInAction(() => {
                 //sort by position in queue
                 this.buses = data.sort(

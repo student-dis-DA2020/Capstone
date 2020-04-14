@@ -8,6 +8,7 @@ class BusLineService {
         }
      const request = new Request(API.BASE_URL + API.BUS_LINE, options);
      const response = await fetch(request);
+    
      return response.json();
     }
 

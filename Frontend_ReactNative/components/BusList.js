@@ -10,6 +10,7 @@ import { IconButton } from 'react-native-paper';
 class BusList extends React.Component {
     constructor(props) {
         super(props);
+
     }
 
     componentDidMount() {
@@ -62,15 +63,12 @@ class BusList extends React.Component {
                 <Text style={[styles.rowItem]}>
                     {data.item._id}
                 </Text>
-                <Text style={[styles.rowItem, {textAlign: 'right'}]}>
-                    {data.item.buses[0]}
+                <Text style={[styles.rowItem]}>
+                    {data.item.name}
                 </Text>
-                <IconButton
-                    icon='trash-can-outline'
-                    color={colors.RED}
-                    size={30}
-                    onPress={() => this.deleteBus(data.item._id)}
-                />
+                <Text style={[styles.rowItem]}>
+                    {"Bus # "}{data.item.bus}
+                </Text>
             </View>
         </TouchableOpacity>
         </View>
@@ -92,6 +90,7 @@ class BusList extends React.Component {
             data= {this.props.BusLineStore.buses.slice().sort(
                 (a, b) => (a.position > b.position) ? 1 : -1
             )}
+            
             renderItem= {item=> this.renderItem(item)}
             keyExtractor= {item=>item._id.toString()}
             // renderLeft={() => (
