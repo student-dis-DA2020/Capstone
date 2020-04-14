@@ -13,7 +13,7 @@ class Cars extends React.Component {
   render() {
    return (
       <View style={styles.mainContainer}>
-        <View style={styles.listContainer}>
+        <View style={[styles.listContainer, {flex: 8}]}>
           <CarList/>
         </View>
         <View style={[styles.addCarFormContainer, {flex: 1}]}>

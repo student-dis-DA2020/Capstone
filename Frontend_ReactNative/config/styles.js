@@ -22,21 +22,19 @@ const styles = StyleSheet.create({
     },
     listItem:{
       flex: 1,
-      alignItems: 'center',
+      alignItems: 'flex-start',
       justifyContent: 'center',
       paddingVertical: 4,
       margin: 2,
       color: 'white'
     },
     textRow: {
-      flex: 10,
       flexDirection: 'row',
-      // alignSelf: 'stretch'
     },
     rowItem: {
-      flex: 3,
-      // alignSelf: 'stretch',
-      padding: 6,
+      margin: 5,
+      justifyContent: 'center',
+      alignItems: 'center',
       color: 'black',
       fontSize: 18
     },
@@ -46,16 +44,14 @@ const styles = StyleSheet.create({
       fontSize: 18
     },
     listContainer: {
-      flex: 8,
+      flex: 1,
       flexDirection: 'row',
       backgroundColor: colors.OFF_WHITE,
-      alignItems: 'center',
-      justifyContent: 'center',
+      // alignItems: 'center',
       padding: 5,
     },
     addCarFormContainer: {
       flexDirection: 'row',
-      marginBottom: 10,
       padding: 5,
       flexWrap: 'wrap',
       backgroundColor: colors.LIGHT_BLUE,

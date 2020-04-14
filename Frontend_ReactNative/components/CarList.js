@@ -116,7 +116,7 @@ class CarList extends React.Component {
         //render loading indicator
         if(this.props.CarLineStore.loading){
          return( 
-           <View style={styles.listContainer}> 
+           <View style={[styles.listContainer], {justifyContent: 'center'}}> 
              <ActivityIndicator size="large" color={colors.BLUE}/>
            </View>
        )}
