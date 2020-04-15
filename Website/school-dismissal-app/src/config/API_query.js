@@ -21,20 +21,7 @@ class API_query {
         return response;
     }
 
-    // deleteCarAsync = async (id) => {
-    //     try {
-    //         const response = await this.carLineQueueService.delete(id)
-    //         runInAction(() => {
-    //             this.status = "success";
-    //             this.loading = false;
-    //             this.updateQueueAsync();
-    //         })
-    //     } catch (error) {
-    //         runInAction(() => {
-    //             this.status = "error";
-    //         });
-    //     }
-    // };
+ 
 
 }
 

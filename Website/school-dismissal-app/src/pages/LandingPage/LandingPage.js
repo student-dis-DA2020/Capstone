@@ -55,15 +55,12 @@ class LandingPage extends Component {
           {!this.state.isAddstudent && <studentList editstudent={this.editstudent}/>}
           { studentForm }
           {this.state.error && <div>Error: {this.state.error.message}</div>}
+
                 <Students students={this.state.students} />
           </PageLayout>
         </Container>
 
-        
       </div>
-
-
-
         );
     }
 
