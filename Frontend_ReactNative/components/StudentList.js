@@ -32,39 +32,13 @@ class StudentList extends React.Component {
     deleteStudent = async (id) => {
         try {
             await this.props.CarLineStore.deleteCarAsync(id);
+            //if deleted from this screen send notification email.  if you delete from the 
+            //cars screen this will not send so you can fix mistakes on that screen without alerting the parents
+            await this.props.CarLineStore.sendNotificationEmailAsync(id);
         } catch (e) {
             console.log(e);
         }
     }
-
-    // renderItem = (data) => 
-    //     <View style={styles.card}>
-    //     <TouchableOpacity style={styles.listItem}>
-    //         <View style={styles.textRow}>
-    //             <Text style={[styles.rowItem], {flex: 1, fontSize: 20}}>
-    //                 {data.item._id}
-    //             </Text>
-    //             <Text style={[styles.rowItem], {flex: 2, fontSize: 20}}>
-    //                 {data.item.name}
-    //             </Text>
-    //             <IconButton
-    //                 style={{flex: 1, justifyContent: 'flex-end', marginEnd: 1}}
-    //                 icon='trash-can-outline'
-    //                 color={colors.RED}
-    //                 size={18}
-    //                 onPress={() => this.deleteStudent(data.item._id)}
-    //             />
-    //         </View>
-    //         <View style={styles.textRow}>
-    //             <Text style={[styles.rowItem], {fontSize: 15, flex: 1}}>
-    //                 {'Grade: ' + data.item.grade}
-    //             </Text>
-    //             <Text style={[styles.rowItem, {fontSize: 15, flex: 2}]}>
-    //                 {'Teacher: ' + data.item.teacher}
-    //             </Text>
-    //         </View>
-    //     </TouchableOpacity>
-    //     </View>
 
     changeWaitingStatus = async (id) => {
         try {
@@ -104,14 +78,20 @@ class StudentList extends React.Component {
                         status={data.item.waiting ? 'checked' : 'unchecked'}
                         onPress={() => { this.changeWaitingStatus(data.item._id) }}/>
                 </View>
-                <View style={{ flex: 1, padding: 5 }}>
+                <View style={{ flex: 1, padding: 5}}>
                     <Text style={{}}>
-                        {'Teacher:\n' + data.item.teacher}
+                        {'Teacher:'}
+                    </Text>
+                    <Text style={{fontSize: 16, fontWeight: "700" }}>
+                        {'\t' + data.item.teacher}
                     </Text>
                 </View>
                 <View style={{ flex: 1, padding: 5, alignContent: 'flex-end'}}>
                     <Text style={{textAlign: 'right', marginEnd: 5}}>
-                        {'Grade: ' + data.item.grade}
+                        {'Grade:'}
+                    </Text>
+                    <Text style={{textAlign: 'right', fontSize: 16, fontWeight: "700", marginEnd: 20 }}>
+                        {'\t' + data.item.grade}
                     </Text>
                 </View>
             </View>

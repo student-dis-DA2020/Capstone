@@ -183,6 +183,22 @@ constructor(){
             });
         }
     }
+
+    //sends a notification email (if address is available) to parent of student
+    sendNotificationEmailAsync = async (id) => {
+        try {
+            const response = await this.carLineQueueService.sendNotificationEmail(id)
+            runInAction(() => {
+                this.status = "success";
+                this.loading = false;
+                this.updateQueueAsync();
+            })
+        } catch (error) {
+            runInAction(() => {
+                this.status = "error";
+            });
+        }
+    }
 }
 
 decorate(CarLineStore, {
@@ -196,7 +212,8 @@ decorate(CarLineStore, {
     deleteCarAsync: action,
     moveUpAsync: action,
     moveDownAsync: action,
-    changeWaitingStatus: action
+    changeWaitingStatus: action,
+    sendNotificationEmailAsync: action
 });
 
 export default new CarLineStore();

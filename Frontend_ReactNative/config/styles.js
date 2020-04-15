@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
       flex: 1,
       flexDirection: 'row',
       backgroundColor: colors.OFF_WHITE,
-      // alignItems: 'center',
       padding: 5,
     },
     addCarFormContainer: {
