@@ -83,7 +83,7 @@ class StudentList extends React.Component {
                         {'Teacher:'}
                     </Text>
                     <Text style={{fontSize: 16, fontWeight: "700" }}>
-                        {'\t' + data.item.teacher}
+                        {data.item.teacher}
                     </Text>
                 </View>
                 <View style={{ flex: 1, padding: 5, alignContent: 'flex-end'}}>
@@ -91,7 +91,7 @@ class StudentList extends React.Component {
                         {'Grade:'}
                     </Text>
                     <Text style={{textAlign: 'right', fontSize: 16, fontWeight: "700", marginEnd: 20 }}>
-                        {'\t' + data.item.grade}
+                        {data.item.grade}
                     </Text>
                 </View>
             </View>
