@@ -4,6 +4,8 @@ import { Container, Button, Alert } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 import PageLayout from '../PageLayout/PageLayout';
 import Add_student from '../../components/Students/Add_student';
+import API from '../../config/environment'
+import API_query from '../../config/API_query'
 
 
 class LandingPage extends Component {
@@ -23,17 +25,10 @@ class LandingPage extends Component {
     }
 
 
-
-
-
-
-    
     
     onCreate() {
         this.setState({ isAddstudent: true });
         }
-
-
 
 
     render() {
@@ -60,30 +55,22 @@ class LandingPage extends Component {
           {!this.state.isAddstudent && <studentList editstudent={this.editstudent}/>}
           { studentForm }
           {this.state.error && <div>Error: {this.state.error.message}</div>}
+
                 <Students students={this.state.students} />
           </PageLayout>
         </Container>
 
-        
       </div>
-
-
-
         );
     }
 
     componentDidMount() {
-        fetch('https://ancient-bayou-94629.herokuapp.com/all')
+        fetch(API.BASE_URL + API.ALL_STUDENTS)
             .then(res => res.json())
             .then((data) => {
                 this.setState({ students: data })
             })
             .catch(console.log)
     }
-
-
-
 }
-
-
 export default withRouter(LandingPage);

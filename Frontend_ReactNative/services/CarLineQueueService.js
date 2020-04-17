@@ -37,6 +37,15 @@ class CarLineQueueService {
         const response = await fetch(request);
         return response;
     }
+
+    sendNotificationEmail = async (id) => {
+        const options = {
+            method: "PUT",
+        }
+        const request = new Request(API.BASE_URL + API.EMAIL + "/" + id, options);
+        const response = await fetch(request);
+        return response;
+    }
 }
 
 export default CarLineQueueService;

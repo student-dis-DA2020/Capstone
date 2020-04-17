@@ -96,6 +96,15 @@ public class PersonInLine {
     return this.waiting;
   }
 
+  String email;
+  public PersonInLine setEmail(String email) {
+    this.email = email;
+    return this;
+  }
+  public String getEmail() {
+    return this.email;
+  }
+
   public PersonInLine() {}
   public PersonInLine(String name,
                  int grade,
@@ -104,7 +113,8 @@ public class PersonInLine {
                  String[] guardians,
                  String teacher,
                  int position,
-                 boolean waiting
+                 boolean waiting,
+                  String email
   ) {
     this.name = name;
     this.grade = grade;
@@ -114,6 +124,7 @@ public class PersonInLine {
     this.teacher = teacher;
     this.position = position;
     this.waiting = waiting;
+    this.email = email;
   }
 
   //create a PersonInLine from Student data
@@ -127,5 +138,6 @@ public class PersonInLine {
     this.guardians = student.guardians;
     this.position = student.position;
     this.waiting = student.waiting;
+    this.email = student.email;
   }
 }

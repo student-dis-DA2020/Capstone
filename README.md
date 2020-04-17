@@ -46,6 +46,7 @@ Delete a student -------------`DELETE {Base Url}/all/{id}`\
 Get list of students by teacher---`GET {Base Url}/all/searchByTeacher?teacher={teacher name}`\
 Get list of students by mode of dismissal -- `GET {Base Url}/all/searchByMode?mode={transportation mode (CAR, BUS, WALK)}`\
 Get list of students riding assigned to a bus -- `GET {Base Url}/all/searchByBus?bus={Bus number}`\
+Send dismissal notification email -- `PUT {Base Url}/sendEmail/{id}`\
 \
 Get list of all students in Car-line--------- `GET {Base Url}/line`\
 Add Car to Car-line------`POST {Base Url}/line/{id}`\
