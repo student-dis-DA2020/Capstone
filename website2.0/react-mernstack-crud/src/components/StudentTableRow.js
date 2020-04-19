@@ -22,9 +22,16 @@ export default class StudentTableRow extends Component {
     render() {
         return (
             <tr>
+                <td>{this.props.obj._id}</td>
                 <td>{this.props.obj.name}</td>
+                <td>{this.props.obj.teacher}</td>
+                <td>{this.props.obj.bus}</td>
+                <td>{this.props.obj.room}</td>
+                <td>{this.props.obj.grade}</td>
+                <td>{this.props.obj.mode}</td>
+                <td>{this.props.obj.gaurdians}</td>
+                <td>{this.props.obj.car}</td>
                 <td>{this.props.obj.email}</td>
-                <td>{this.props.obj.rollno}</td>
                 <td>
                     <Link className="edit-link" to={"/edit-student/" + this.props.obj._id}>
                         Edit

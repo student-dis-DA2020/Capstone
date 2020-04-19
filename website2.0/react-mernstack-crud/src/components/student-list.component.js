@@ -14,7 +14,7 @@ export default class StudentList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:4000/students/')
+    axios.get('http://ancient-bayou-94629.herokuapp.com/all')
       .then(res => {
         this.setState({
           students: res.data
@@ -37,10 +37,17 @@ export default class StudentList extends Component {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Teacher</th>
+            <th>Bus Number</th>
+            <th>Class Room</th>
+            <th>Students Grade</th>
+            <th>Mode of transportation</th>
+            <th>Parent</th>
+            <th>Car</th>
             <th>Email</th>
-            <th>Roll No</th>
-            <th>Action</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
