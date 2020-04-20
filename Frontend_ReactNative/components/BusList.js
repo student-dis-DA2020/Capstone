@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ActivityIndicator, FlatList, TouchableOpacity} from 'react-native';
+import { View, Text, ActivityIndicator, FlatList, TouchableOpacity, TouchableNativeFeedback} from 'react-native';
 import { SwipeableFlatList } from 'react-native-swipeable-flat-list';
 import styles from '../config/styles'
 import colors from '../config/colors';
@@ -41,36 +41,44 @@ class BusList extends React.Component {
             console.log(e);
         }
     }
+ 
+    dismissStudent = async (id) => {
+        try { 
+            console.log('dismiss ' + id);
+            await this.props.BusLineStore.changeDismissStatusAsync(id)
+            await this.props.BusLineStore.sendNotificationEmailAsync(id)
+        } catch (e) {
+            console.log(e);
+        }
+    } 
     //this method renders each individual car card
     renderItem = (data) => 
         <View style={styles.card}>
-        <TouchableOpacity style={styles.listItem}>
-            <View style={styles.textRow}>
-                <View style={{flexDirection: 'column'}}>
-                    <IconButton
-                        icon='arrow-up-bold'
-                        color={colors.BLUE}
-                        size={15}
-                        onPress={() => this.moveUp(data.item._id)}
-                    />
-                    <IconButton
-                        icon='arrow-down-bold'
-                        color={colors.BLUE}
-                        size={15}
-                        onPress={() => this.moveDown(data.item._id)}
-                    />
+            <View style={styles.listItem}>
+                <View style={styles.textRow}>
+                    
+                    <Text style={[styles.rowItem]}>
+                        {data.item._id}
+                    </Text>
+                    <Text style={[styles.rowItem]}>
+                        {data.item.name}
+                    </Text>
+                    <Text style={[styles.rowItem]}>
+                        {"Bus #"}{data.item.bus}
+                    </Text>
+                    
+                    <TouchableNativeFeedback
+                        onPress ={() => this.dismissStudent(data.item._id)}
+                        useForeground = {true}>
+                        <View 
+                            style={styles.cardButton} >
+                            <Text>
+                                {"Dismiss"}
+                            </Text>
+                        </View>
+                    </TouchableNativeFeedback>
                 </View>
-                <Text style={[styles.rowItem]}>
-                    {data.item._id}
-                </Text>
-                <Text style={[styles.rowItem]}>
-                    {data.item.name}
-                </Text>
-                <Text style={[styles.rowItem]}>
-                    {"Bus # "}{data.item.bus}
-                </Text>
             </View>
-        </TouchableOpacity>
         </View>
 
     render() {

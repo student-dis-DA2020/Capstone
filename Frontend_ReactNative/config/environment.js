@@ -4,6 +4,9 @@ const API = {
     CARLINE: '/line',
     BUS_LINE: '/all/searchByMode?mode=BUS',
     EMAIL: '/sendEmail'
+    
+    //dismiss individual student using their id. TODO: add functionality in backend
+    //DISMISS: '/dismiss' 
   };
   
 export default API;

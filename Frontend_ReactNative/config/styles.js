@@ -82,6 +82,18 @@ const styles = StyleSheet.create({
       borderWidth: 1,
       borderColor:colors.DARK_BLUE 
     },
+    cardButton:{
+      borderRadius: 16, 
+      elevation: 6,
+      backgroundColor: 'white',
+      shadowOffset: { width: 3, height: 3 },
+      shadowColor: colors.BLUE,
+      shadowOpacity: 0.3,
+      shadowRadius: 2,    
+      marginHorizontal: 4,
+      marginVertical: 6,
+      padding:8
+    },
     buttonText:{
       color:'white',
       textAlign:'center',

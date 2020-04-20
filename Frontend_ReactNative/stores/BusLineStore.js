@@ -135,6 +135,55 @@ constructor(){
             });
         }
     }
+
+
+    //this changes the waiting status of the bus
+    changeWaitingStatusAsync = async (id) => {
+        try {
+            const response = await this.busLineService.changeWaitingStatus(id)
+            runInAction(() => {
+                this.status = "success";
+                this.loading = false;
+                this.updateQueueAsync();
+            })
+        } catch (error) {
+            runInAction(() => {
+                this.status = "error";
+            });
+        }
+    }
+
+    //sends a notification email (if address is available) to parent of student
+    sendNotificationEmailAsync = async (id) => {
+        try {
+            const response = await this.busLineService.sendNotificationEmail(id)
+            runInAction(() => {
+                this.status = "success";
+                this.loading = false;
+                this.updateQueueAsync();
+            })
+        } catch (error) {
+            runInAction(() => {
+                this.status = "error";
+            });
+        }
+    }
+
+    changeDismissStatusAsync = async (id) => {
+        try {
+            const response = await this.busLineService.changeDismissStatus(id)
+            runInAction(() => {
+                this.status = "success";
+                this.loading = false;
+                this.updateQueueAsync();
+            })
+        } catch (error) {
+            runInAction(() => {
+                this.status = "error";
+            });
+        }
+    }
+    
 }
 
 decorate(BusLineStore, {
