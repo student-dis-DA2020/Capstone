@@ -38,6 +38,7 @@ API/src/main/resources/application-prod.properties
 API/src/main/resources/application-prod.properties
 
 .idea/
+.bin
 
 Website/school-dismissal-app/node_modules
 Frontend_ReactNative/.expo/
