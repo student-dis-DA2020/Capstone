@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import StudentTableRow from './StudentTableRow';
+import API from '../config/environment';
 
 
 export default class StudentList extends Component {
@@ -14,7 +15,7 @@ export default class StudentList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://ancient-bayou-94629.herokuapp.com/all')
+    axios.get(API.BASE_URL + API.ALL_STUDENTS)
       .then(res => {
         this.setState({
           students: res.data
@@ -44,7 +45,8 @@ export default class StudentList extends Component {
             <th>Class Room</th>
             <th>Students Grade</th>
             <th>Mode of transportation</th>
-            <th>Parent</th>
+            <th>Parent 1</th>
+            <th>Parent 2</th>
             <th>Car</th>
             <th>Email</th>
             <th></th>
