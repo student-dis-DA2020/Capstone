@@ -5,7 +5,7 @@ import styles from '../config/styles'
 import colors from '../config/colors';
 import { observer, inject } from 'mobx-react';
 import { IconButton } from 'react-native-paper';
-
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 class BusList extends React.Component {
     constructor(props) {
@@ -54,31 +54,37 @@ class BusList extends React.Component {
     //this method renders each individual car card
     renderItem = (data) => 
         <View style={styles.card}>
-            <View style={styles.listItem}>
-                <View style={styles.textRow}>
-                    
-                    <Text style={[styles.rowItem]}>
-                        {data.item._id}
-                    </Text>
-                    <Text style={[styles.rowItem]}>
-                        {data.item.name}
-                    </Text>
-                    <Text style={[styles.rowItem]}>
-                        {"Bus #"}{data.item.bus}
-                    </Text>
+                <View style={styles.horizontal}>
+                    <View style={styles.verticalCompact}>
+                        <Text style= {styles.studentName}>
+                            {data.item.name}
+                        </Text>
+                        <View style={styles.horizontalCompact}>
+                            <Icon name='bus' style={styles.detailIcon} size={18} />
+                            <Text>
+                                {data.item.bus}
+                            </Text>
+                        </View>
+                        <View style={styles.horizontalCompact}>
+                            <Icon name='teach' style={styles.detailIcon} size={18} />
+                            <Text>
+                                {data.item.teacher}
+                            </Text>
+                        </View>
+                    </View>
                     
                     <TouchableNativeFeedback
                         onPress ={() => this.dismissStudent(data.item._id)}
-                        useForeground = {true}>
+                        useForeground = {true}
+                        style={styles.right}>
                         <View 
-                            style={styles.cardButton} >
-                            <Text>
+                            style={[styles.cardButton]} >
+                            <Text style={styles.buttonText}>
                                 {"Dismiss"}
                             </Text>
                         </View>
                     </TouchableNativeFeedback>
                 </View>
-            </View>
         </View>
 
     render() {
