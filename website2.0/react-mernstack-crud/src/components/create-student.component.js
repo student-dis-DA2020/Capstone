@@ -9,22 +9,6 @@ export default class CreateStudent extends Component {
   constructor(props) {
     super(props)
 
-    // Setting up functions
-    this.onChangeStudentID = this.onChangeStudentID.bind(this);
-    this.onChangeStudentName = this.onChangeStudentName.bind(this);
-    this.onChangeStudentTeacher = this.onChangeStudentTeacher.bind(this);
-    this.onChangeStudentBus = this.onChangeStudentBus.bind(this);
-    this.onChangeStudentRoom = this.onChangeStudentRoom.bind(this);
-    this.onChangeStudentGrade = this.onChangeStudentGrade.bind(this);
-    this.onChangeStudentMode = this.onChangeStudentMode.bind(this);
-    this.onChangeStudentGaurdians = this.onChangeStudentGaurdians.bind(this);
-    this.onChangeStudentCars = this.onChangeStudentCars.bind(this);
-    this.onChangeStudentPosition = this.onChangeStudentPosition.bind(this);
-    this.onChangeStudentWaiting = this.onChangeStudentWaiting.bind(this);
-    this.onChangeStudentEmail = this.onChangeStudentEmail.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-
-
     // Setting up state
     this.state = {
       _id: '',
@@ -34,94 +18,42 @@ export default class CreateStudent extends Component {
       room: '',
       grade: '',
       mode: '',
-      gaurdians: ['',''],
+      guardian1:'',
+      guardian2:'',
       cars: '',
       position: '',
       email: ''
     }
+    
+    this.state = React.createRef();
+
   }
 
-  onChangeStudentID(e) {
-    this.setState({ _id: e.target.value })
-  }
-
-  onChangeStudentName(e) {
-    this.setState({ Name: e.target.value })
-  }
-
-  onChangeStudentTeacher(e) {
-    this.setState({ teacher: e.target.value })
-  }
-
-  onChangeStudentBus(e) {
-    this.setState({ bus: e.target.value })
-  }
-  onChangeStudentRoom(e) {
-    this.setState({ room: e.target.value })
-  }
-  onChangeStudentGrade(e) {
-    this.setState({ grade: e.target.value })
-  }
-  onChangeStudentMode(e) {
-    this.setState({ mode: e.target.value })
-  }
-  onChangeStudentGaurdians(e) {
-    this.setState({ guardians: e.target.value })
-  }
-  onChangeStudentCars(e) {
-    this.setState({ cars: e.target.value })
-  }
-  onChangeStudentPosition(e) {
-    this.setState({ position: e.target.value })
-  }
   
-  onChangeStudentWaiting(e) {
-    this.setState({ waiting: e.target.value })
-  }
-  onChangeStudentEmail(e) {
-    this.setState({ Email: e.target.value })
-  }
-  
-  onSubmit(e) {
+  onSubmit = (e) => {
+    console.log('on submit pressed')
     e.preventDefault()
-
-
-
-
-    const studentObject = {
-      _id: this.state.defaultValue,
-      Name: this.state.defaultValue,
-      teacher: this.state.defaultValue,
-      bus: this.state.defaultValue,
-      room: this.state.defaultValue,
-      grade: this.state.defaultValue,
-      mode: this.state.defaultValue,
-      guardians: this.state.defaultValue,
-      cars: this.state.defaultValue,
-      position: this.state.defaultValue,
-      waiting: this.state.defaultValue,
-      Email: this.state.defaultValue
+  
+    var studentObject = {
+      _id: e.target.elements._id.value,
+      name: e.target.elements.Name.value,
+      teacher: e.target.elements.teacher.value,
+      bus: parseInt(e.target.elements.bus.value),
+      room: parseInt(e.target.elements.room.value),
+      grade: parseInt(e.target.elements.grade.value),
+      mode: e.target.elements.mode.value,
+      guardians: [e.target.elements.guardian2.value,e.target.elements.guardian1.value],
+      cars: [e.target.elements.cars.value],
+      position: parseInt(e.target.elements.position.value),
+      waiting: e.target.elements.waiting.value,
+      Email: e.target.elements.Email.value
 
     };
 
-
+    
     axios.post(API.BASE_URL + '/all', studentObject)
       .then(res => console.log(res.data));
 
-    this.setState({ 
-      _id: '',
-      Name: '',
-      teacher: '',
-      bus: '',
-      room: '',
-      grade: '',
-      mode: '',
-      gaurdians: '',
-      cars: '',
-      position: '',
-      email: ''
-    
-    })
   }
 
 
@@ -129,6 +61,7 @@ export default class CreateStudent extends Component {
 
 
   render() {
+    console.log("in create student")
     return (<div className="form-wrapper">
       <Form onSubmit={this.onSubmit}>
 
@@ -137,18 +70,14 @@ export default class CreateStudent extends Component {
           <Form.Control
             type="number"
             name="_id"
-            defaultValue={this.state._id}
-            onChange={this.handleChange}
             placeholder="_id"/>
         </Form.Group>
 
-        <Form.Group controlId="name">
+        <Form.Group controlId="Name">
           <Form.Label>Student name</Form.Label>
           <Form.Control
             type="text"
-            name="name"
-            defaultValue={this.state.name}
-            onChange={this.handleChange}
+            name="Name"
             placeholder="studentname"/>
         </Form.Group>
 
@@ -157,8 +86,6 @@ export default class CreateStudent extends Component {
           <Form.Control
             type="text"
             name="teacher"
-            defaultValue={this.state.teacher}
-            onChange={this.handleChange}
             placeholder="teacher" />
         </Form.Group>
 
@@ -167,8 +94,6 @@ export default class CreateStudent extends Component {
           <Form.Control
             type="text"
             name="bus"
-            defaultValue={this.state.bus}
-            onChange={this.handleChange}
             placeholder="bus" />
         </Form.Group>
 
@@ -177,8 +102,6 @@ export default class CreateStudent extends Component {
           <Form.Control
             type="number"
             name="room"
-            defaultValue={this.state.room}
-            onChange={this.handleChange}
             placeholder="room" />
         </Form.Group>
 
@@ -187,8 +110,6 @@ export default class CreateStudent extends Component {
           <Form.Control
             type="number"
             name="grade"
-            defaultValue={this.state.grade}
-            onChange={this.handleChange}
             placeholder="grade"/>
         </Form.Group>
 
@@ -197,19 +118,23 @@ export default class CreateStudent extends Component {
           <Form.Control
             type="text"
             name="mode"
-            defaultValue={this.state.mode}
-            onChange={this.handleChange}
             placeholder="mode" />
         </Form.Group>
 
-        <Form.Group controlId="gaurdians">
-          <Form.Label>Gaurdians</Form.Label>
+        <Form.Group controlId="guardian1">
+          <Form.Label>Gaurdian one</Form.Label>
           <Form.Control
             type="text"
-            name="gaurdians"
-            defaultValue={this.state.guardians}
-            onChange={this.handleChange}
-            placeholder="gaurdians" />
+            name="guardian1"
+            placeholder="guardian1" />
+        </Form.Group>
+
+        <Form.Group controlId="guardian2">
+          <Form.Label>Gaurdian two</Form.Label>
+          <Form.Control
+            type="text"
+            name="guardian2"
+            placeholder="guardian2" />
         </Form.Group>
 
         <Form.Group controlId="cars">
@@ -217,8 +142,6 @@ export default class CreateStudent extends Component {
           <Form.Control
             type="text"
             name="cars"
-            defaultValue={this.state.cars}
-            onChange={this.handleChange}
             placeholder="cars" />
         </Form.Group>
 
@@ -227,8 +150,6 @@ export default class CreateStudent extends Component {
           <Form.Control
             type="number"
             name="position"
-            defaultValue={this.state.position}
-            onChange={this.handleChange}
             placeholder="position" />
         </Form.Group>
         
@@ -237,8 +158,6 @@ export default class CreateStudent extends Component {
           <Form.Control
             type="text"
             name="waiting"
-            defaultValue={this.state.waiting}
-            onChange={this.handleChange}
             placeholder="waiting" />
         </Form.Group>
 
@@ -247,8 +166,6 @@ export default class CreateStudent extends Component {
           <Form.Control
             type="Email"
             name="Email"
-            defaultValue={this.state.Email}
-            onChange={this.handleChange}
             placeholder="Email"/>
         </Form.Group>
 

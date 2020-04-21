@@ -20,6 +20,9 @@ export default class StudentTableRow extends Component {
     }
 
     render() {
+        //const guardian_1 = this.props.obj.guardians[1];
+        //console.log(guardian_1)
+        //console.log(this.props.obj.guardians)
         return (
             <tr>
                 <td>{this.props.obj._id}</td>
@@ -29,9 +32,9 @@ export default class StudentTableRow extends Component {
                 <td>{this.props.obj.room}</td>
                 <td>{this.props.obj.grade}</td>
                 <td>{this.props.obj.mode}</td>
-                <td>{this.props.obj.guardians[0]}</td>
-                <td>{this.props.obj.guardians[1]}</td>
-                <td>{this.props.obj.cars[0]}</td>
+                {/* <td>{this.props.obj.guardians[0]}</td>
+                <td>{this.props.obj.guardians[1]}</td> */}
+                {/* <td>{this.props.obj.cars[0]}</td> */}
                 <td>{this.props.obj.email}</td>
                 <td>
                     <Link className="edit-link" to={"/edit-student/" + this.props.obj._id}>
