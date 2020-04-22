@@ -12,6 +12,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import CreateStudent from "./components/create-student.component";
 import EditStudent from "./components/edit-student.component";
 import StudentList from "./components/student-list.component";
+import UpdateStudent from "./components/update-student.component";
+import DeleteStudent from "./components/delete-student.component";
 
 function App() {
   return (<Router>
@@ -29,11 +31,25 @@ function App() {
               </Nav>
 
               <Nav>
+                <Link to={"/update-student"} className="nav-link">
+                  Update Student
+                </Link>
+              </Nav>
+
+              <Nav>
+                <Link to={"/delete-student"} className="nav-link">
+                  Delete Student
+                </Link>
+              </Nav>
+
+              <Nav>
                 <Link to={"/student-list"} className="nav-link">
                   Student List
                 </Link>
               </Nav>
             </Nav>
+      
+
 
           </Container>
         </Navbar>
@@ -48,6 +64,8 @@ function App() {
                 <Route path="/create-student" component={CreateStudent} />
                 <Route path="/edit-student/:id" component={EditStudent} />
                 <Route path="/student-list" component={StudentList} />
+                <Route path="/update-student" component={UpdateStudent} />
+                <Route path="/delete-student" component={DeleteStudent} />
               </Switch>
             </div>
           </Col>
