@@ -4,6 +4,7 @@ enableScreens();
 import TabNavigator from './navigators/TabNavigator';
 import CarLineStore from './stores/CarLineStore';
 import StudentsStore from './stores/StudentsStore';
+import BusLineStore from './stores/BusLineStore';
 import { observer, Provider } from 'mobx-react';
 
 
@@ -15,9 +16,10 @@ export default class App extends React.Component {
 
   render(){
     return (
-      <Provider CarLineStore={CarLineStore} StudentsStore={StudentsStore}>
+      <Provider CarLineStore={CarLineStore} StudentsStore={StudentsStore} BusLineStore={BusLineStore} >
         <TabNavigator/>
       </Provider>
+
     )
   }
 }

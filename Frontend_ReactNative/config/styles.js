@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
 import colors from './colors';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
  
 
 const styles = StyleSheet.create({
@@ -68,6 +69,18 @@ const styles = StyleSheet.create({
       justifyContent: 'space-around',
       padding: 10
     },
+    horizontalCompact:{
+      flexDirection: 'row',
+    },
+    vertical: {
+      flexDirection: 'column',
+      justifyContent: 'space-around',
+      padding: 10
+    },
+    verticalCompact: {
+      flexDirection: 'column',
+      justifyContent: 'space-around',
+    },
     addCarButton:{
       alignContent: 'center',
       justifyContent: 'center',
@@ -82,11 +95,35 @@ const styles = StyleSheet.create({
       borderWidth: 1,
       borderColor:colors.DARK_BLUE 
     },
+    cardButton:{
+      borderRadius: 28, 
+      elevation: 6,
+      backgroundColor: 'white',
+      shadowOffset: { width: 3, height: 3 },
+      shadowColor: colors.BLUE,
+      shadowOpacity: 0.3,
+      shadowRadius: 2,    
+      margin: 4,
+      paddingHorizontal: 12,
+      flex: 0,
+      justifyContent:"center",
+      backgroundColor: '#00B0FF'
+
+    },
     buttonText:{
       color:'white',
       textAlign:'center',
-      fontSize: 20,
+      fontSize: 16,
       padding: 5,
+    },
+    right:{
+      alignSelf: 'flex-end'
+    },
+    studentName:{
+      fontSize: 18
+    },
+    detailIcon:{
+      marginHorizontal: 8
     }
 });
 
