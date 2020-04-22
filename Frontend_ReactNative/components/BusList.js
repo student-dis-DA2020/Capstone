@@ -51,10 +51,13 @@ class BusList extends React.Component {
             console.log(e);
         }
     } 
-    //this method renders each individual car card
+    //this method renders each individual bus card
     renderItem = (data) => 
         <View style={styles.card}>
                 <View style={styles.horizontal}>
+                    <Text style= {styles.studentName}>
+                        {data.item._id}
+                    </Text>
                     <View style={styles.verticalCompact}>
                         <Text style= {styles.studentName}>
                             {data.item.name}
@@ -76,9 +79,9 @@ class BusList extends React.Component {
                     <TouchableNativeFeedback
                         onPress ={() => this.dismissStudent(data.item._id)}
                         useForeground = {true}
-                        style={styles.right}>
+                        style={[styles.right, {flex:0}]}>
                         <View 
-                            style={[styles.cardButton]} >
+                            style={[styles.cardButton, {marginVertical:10}]} >
                             <Text style={styles.buttonText}>
                                 {"Dismiss"}
                             </Text>
