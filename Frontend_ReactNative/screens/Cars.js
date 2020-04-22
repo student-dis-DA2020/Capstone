@@ -16,7 +16,7 @@ class Cars extends React.Component {
         <View style={[styles.listContainer, {flex: 8}]}>
           <CarList/>
         </View>
-        <View style={[styles.addCarFormContainer, {flex: 1}]}>
+        <View style={[styles.addCarFormContainer, {flex: 1.5}]}>
           <AddCarForm/>
         </View>
       </View>

@@ -16,7 +16,7 @@ import Cars from "../screens/Cars";
 import Students from "../screens/Students";
 
 const activeTintLabelColor = 'white';
-const inactiveTintLabelColor = 'grey';
+const inactiveTintLabelColor = '#B0BEC5';
 
 const CarLineTabNavigator = createMaterialTopTabNavigator(
   {
@@ -33,7 +33,7 @@ const CarLineTabNavigator = createMaterialTopTabNavigator(
       pressColor: colors.DARK_BLUE,
       style: {
         boxShadow: 'none',
-        backgroundColor: colors.LIGHT_BLUE,
+        backgroundColor: '#fff',
         alignContent: 'center'
       },
       tabStyle: {
@@ -43,8 +43,8 @@ const CarLineTabNavigator = createMaterialTopTabNavigator(
         textAlign: 'center',
       },
       indicatorStyle: {
-        borderBottomColor: colors.RED,
-        borderBottomWidth: 4,
+        borderBottomColor: 'rgb(180, 180, 180)',
+        borderBottomWidth: 2,
       },
     },
   }
@@ -68,7 +68,7 @@ const TabNavigator = createMaterialBottomTabNavigator({
       tabBarIcon: ({ focused }) => (
         <Icon name='google-classroom' color={focused ? activeTintLabelColor : inactiveTintLabelColor} size={24} />
       ),
-      tabBarColor: colors.DARK_BLUE
+      tabBarColor: '#0288D1'
     }
   },
   CarLine: {
@@ -78,7 +78,7 @@ const TabNavigator = createMaterialBottomTabNavigator({
       tabBarIcon: ({ focused }) => (
         <Icon name='car' color={focused ? activeTintLabelColor : inactiveTintLabelColor} size={24} />
       ),
-      tabBarColor: colors.DARK_BLUE
+      tabBarColor: '#0277BD'
     }
   },
   BusLine: {
@@ -88,7 +88,7 @@ const TabNavigator = createMaterialBottomTabNavigator({
       tabBarIcon: ({ focused }) => (
         <Icon name='bus' color={focused ? activeTintLabelColor : inactiveTintLabelColor} size={24} />
       ),
-      tabBarColor: colors.DARK_BLUE
+      tabBarColor: '#01579B'
     }
   }
 });

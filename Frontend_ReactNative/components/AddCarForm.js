@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { Button } from './Button'
 import styles from '../config/styles'
 import { TextInput } from 'react-native-paper';
@@ -25,17 +25,25 @@ class AddCarForm extends React.Component {
         return (
             <View style={{flex: 2, flexDirection: 'row'}}
                 behavior='padding'>
-                <TextInput style={{flex: 6, height: 30, justifyContent: 'center'}}
+                <View style={[styles.cardButton, {flex: 2, flexDirection: 'row', marginBottom: 14, backgroundColor: "white", padding: 2}]}>
+                <TextInput style={[{flex: 6, height: 50, justifyContent: 'center', backgroundColor: "transparent"}]}
                     placeholder='Enter ID'
+                    co
                     maxLength={3}
                     keyboardType={'numeric'}
                     returnKeyType='done'
+                    underlineColor='rgba(0,0,0,0)'
                     onChangeText={(inputValue) => this.setState({inputValue})}
                 />
-                <Button title='Add Car'
-                    onPress={() => this.addCar(this.state.inputValue)}
-                    style={[styles.addCarButton, {flex: 2}]}>
-                </Button>
+
+                <View 
+                    onPress={() => this.addCar(this.state.inputValue) }
+                    style={[styles.cardButton]} >
+                        <Text style={styles.buttonText}>
+                            {"Add Car"}
+                        </Text>
+                </View>
+                </View>
             </View>
         );
     }

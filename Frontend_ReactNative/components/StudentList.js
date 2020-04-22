@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text, ActivityIndicator, FlatList, TouchableOpacity} from 'react-native';
+import { View, Text, ActivityIndicator, FlatList, TouchableOpacity, TouchableNativeFeedback} from 'react-native';
 import styles from '../config/styles'
 import colors from '../config/colors';
 import { IconButton, Checkbox } from 'react-native-paper';
 import { observer, inject } from 'mobx-react';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
 class StudentList extends React.Component {
@@ -51,50 +52,55 @@ class StudentList extends React.Component {
     renderItem = (data) => 
         <View style={styles.card}>
         <TouchableOpacity>
-            <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                <View style={{ flex: 1, padding: 5 }}>
-                    <Text style={{fontWeight: "600", fontSize: 18}}>
+            <View style={styles.horizontal}>
+                <Text style= {styles.studentName}>
                         {data.item._id}
+                </Text>
+                <View style={styles.verticalCompact}>
+                    <Text style= {styles.studentName}>
+                            {data.item.name}
                     </Text>
+                    <View style={styles.horizontalCompact}>
+                        <Icon name='teach' style={styles.detailIcon} size={18} />
+                        <Text>
+                            {data.item.teacher}
+                        </Text>
+                    </View>
+                    <View style={styles.horizontalCompact}>
+                        <Icon name='google-classroom' style={styles.detailIcon} size={18} />
+                        <Text >
+                            {'Grade '}{data.item.grade}
+                        </Text>
+                    </View>
+                    
                 </View>
-                <View style={{ flex: 1 }}>
-                    <Text style={{fontWeight: "700", fontSize: 18}}>
-                        {data.item.name}
-                    </Text>
-                </View>
-                <View style={{ flex: 1, padding: 5 }}>
-                    <IconButton
-                        style={{alignSelf: 'flex-end'}}
-                        icon='trash-can-outline'
-                        color={colors.RED}
-                        size={18}
+                
+                <View style={styles.verticalCompact}>
+                    <TouchableNativeFeedback
                         onPress={() => this.deleteStudent(data.item._id)}
-                    />
+                        useForeground = {true}
+                        style={styles.right}>
+                        <View 
+                            style={[styles.cardButton]} >
+                            <Text style={styles.buttonText}>
+                                {"Dismiss"}
+                            </Text>
+                        </View>
+                    </TouchableNativeFeedback>
+                    <TouchableNativeFeedback
+                         onPress={() => { this.changeWaitingStatus(data.item._id) }}
+                        useForeground = {true}
+                        style={styles.right}>
+                        <View 
+                            style={[styles.cardButton, {backgroundColor: '#CFD8DC'}]} >
+                            <Text style={[styles.buttonText, {color: '#546E7A'}]}>
+                            {data.item.waiting ? 'Unready' : 'Ready'}
+                            </Text>
+                        </View>
+                    </TouchableNativeFeedback>
                 </View>
             </View>
-            <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                <View style={{ flex: 1, padding: 5 }}>
-                    <Checkbox style={{ }}
-                        status={data.item.waiting ? 'checked' : 'unchecked'}
-                        onPress={() => { this.changeWaitingStatus(data.item._id) }}/>
-                </View>
-                <View style={{ flex: 1, padding: 5}}>
-                    <Text style={{}}>
-                        {'Teacher:'}
-                    </Text>
-                    <Text style={{fontSize: 16, fontWeight: "700" }}>
-                        {data.item.teacher}
-                    </Text>
-                </View>
-                <View style={{ flex: 1, padding: 5, alignContent: 'flex-end'}}>
-                    <Text style={{textAlign: 'right', marginEnd: 5}}>
-                        {'Grade:'}
-                    </Text>
-                    <Text style={{textAlign: 'right', fontSize: 16, fontWeight: "700", marginEnd: 20 }}>
-                        {data.item.grade}
-                    </Text>
-                </View>
-            </View>
+            
         </TouchableOpacity>
         </View>
 
