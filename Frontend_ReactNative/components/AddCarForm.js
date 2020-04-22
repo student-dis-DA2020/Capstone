@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableNativeFeedback } from 'react-native';
 import { Button } from './Button'
 import styles from '../config/styles'
 import { TextInput } from 'react-native-paper';
@@ -35,14 +35,17 @@ class AddCarForm extends React.Component {
                     underlineColor='rgba(0,0,0,0)'
                     onChangeText={(inputValue) => this.setState({inputValue})}
                 />
-
-                <View 
-                    onPress={() => this.addCar(this.state.inputValue) }
-                    style={[styles.cardButton]} >
-                        <Text style={styles.buttonText}>
-                            {"Add Car"}
-                        </Text>
-                </View>
+                <TouchableNativeFeedback
+                         onPress={() => this.addCar(this.state.inputValue)}
+                        useForeground = {true}
+                        style={[styles.right, {flex:0}]}>
+                    <View 
+                        style={[styles.cardButton]} >
+                            <Text style={styles.buttonText}>
+                                {"Add Car"}
+                            </Text>
+                    </View>
+                </TouchableNativeFeedback>
                 </View>
             </View>
         );
