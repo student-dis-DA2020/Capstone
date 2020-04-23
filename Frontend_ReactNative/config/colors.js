@@ -2,7 +2,7 @@ const colors = {
     OFF_WHITE: "#FAFAFA",
     RED: "#E63946",
     LIGHT_BLUE: "#A8DADC",
-    BLUE: "#457B9D",
+    BLUE: "#0091EA",
     DARK_BLUE: "#1D3557" 
   };
   

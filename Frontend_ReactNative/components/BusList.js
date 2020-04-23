@@ -53,40 +53,43 @@ class BusList extends React.Component {
     } 
     //this method renders each individual bus card
     renderItem = (data) => 
-        <View style={styles.card}>
+        <View style={[styles.card, styles.listItem]}>
                 <View style={styles.horizontal}>
-                    <Text style= {styles.studentName}>
+                    <Text style= {[styles.itemHeader, {flex: 1}]}>
                         {data.item._id}
                     </Text>
-                    <View style={styles.verticalCompact}>
-                        <Text style= {styles.studentName}>
+                    <View style={[styles.verticalCompact, {flex: 3}]}>
+                        <Text style= {styles.itemHeader}>
                             {data.item.name}
                         </Text>
                         <View style={styles.horizontalCompact}>
                             <Icon name='bus' style={styles.detailIcon} size={18} />
-                            <Text>
+                            <Text style={styles.detailText}>
                                 {data.item.bus}
                             </Text>
                         </View>
                         <View style={styles.horizontalCompact}>
                             <Icon name='teach' style={styles.detailIcon} size={18} />
-                            <Text>
+                            <Text style={styles.detailText}>
                                 {data.item.teacher}
                             </Text>
                         </View>
                     </View>
                     
-                    <TouchableNativeFeedback
-                        onPress ={() => this.dismissStudent(data.item._id)}
-                        useForeground = {true}
-                        style={[styles.right, {flex:0}]}>
-                        <View 
-                            style={[styles.cardButton, {marginVertical:10}]} >
-                            <Text style={styles.buttonText}>
-                                {"Dismiss"}
-                            </Text>
-                        </View>
-                    </TouchableNativeFeedback>
+                    
+                    <View style={[styles.verticalCompact]}>
+                        <TouchableNativeFeedback
+                            onPress ={() => this.dismissStudent(data.item._id)}
+                            useForeground = {true}
+                            style={[styles.right]}>
+                            <View 
+                                style={[styles.cardButton, {alignSelf: 'baseline', alignContent: 'center'}]} >
+                                <Text style={styles.buttonText}>
+                                    {"Dismiss"}
+                                </Text>
+                            </View>
+                        </TouchableNativeFeedback>
+                    </View>
                 </View>
         </View>
 
