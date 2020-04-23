@@ -50,36 +50,35 @@ class StudentList extends React.Component {
     }
 
     renderItem = (data) => 
-        <View style={styles.card}>
-        <TouchableOpacity>
+        <View style={[styles.card, styles.listItem]}>
             <View style={styles.horizontal}>
-                <Text style= {styles.studentName}>
+                <Text style= {[styles.itemHeader, {flex: 1}]}>
                         {data.item._id}
                 </Text>
-                <View style={styles.verticalCompact}>
-                    <Text style= {styles.studentName}>
+                <View style={[styles.verticalCompact, {flex: 3}]}>
+                    <Text style= {styles.itemHeader}>
                             {data.item.name}
                     </Text>
                     <View style={styles.horizontalCompact}>
                         <Icon name='teach' style={styles.detailIcon} size={18} />
-                        <Text>
+                        <Text style={styles.detailText}>
                             {data.item.teacher}
                         </Text>
                     </View>
                     <View style={styles.horizontalCompact}>
                         <Icon name='google-classroom' style={styles.detailIcon} size={18} />
-                        <Text >
+                        <Text style={styles.detailText}>
                             {'Grade '}{data.item.grade}
                         </Text>
                     </View>
                     
                 </View>
                 
-                <View style={styles.verticalCompact}>
+                <View style={[styles.verticalCompact]}>
                     <TouchableNativeFeedback
                         onPress={() => this.deleteStudent(data.item._id)}
                         useForeground = {true}
-                        style={styles.right}>
+                        style={[styles.right,  {flex: 1}]}>
                         <View 
                             style={[styles.cardButton]} >
                             <Text style={styles.buttonText}>
@@ -90,7 +89,7 @@ class StudentList extends React.Component {
                     <TouchableNativeFeedback
                          onPress={() => { this.changeWaitingStatus(data.item._id) }}
                         useForeground = {true}
-                        style={styles.right}>
+                        style={[styles.right, {flex: 1}]}>
                         <View 
                             style={[styles.cardButton, {backgroundColor: '#CFD8DC'}]} >
                             <Text style={[styles.buttonText, {color: '#546E7A'}]}>
@@ -100,8 +99,6 @@ class StudentList extends React.Component {
                     </TouchableNativeFeedback>
                 </View>
             </View>
-            
-        </TouchableOpacity>
         </View>
 
     render() {

@@ -68,10 +68,9 @@ class CarList extends React.Component {
     }
     //this method renders each individual car card
     renderItem = (data) => 
-        <View style={styles.card}>
-        <TouchableOpacity style={styles.listItem}>
-            <View style={styles.textRow}>
-                <View style={{flexDirection: 'column'}}>
+        <View style={[styles.card, styles.listItem]}>
+            <View style={styles.horizontal}>
+                <View style={styles.verticalCompact}>
                     <IconButton
                         icon='arrow-up-bold'
                         color={colors.BLUE}
@@ -85,22 +84,25 @@ class CarList extends React.Component {
                         onPress={() => this.moveDown(data.item._id)}
                     />
                 </View>
-                <Text style={[styles.rowItem], 
-                    {flex: 8, fontSize: 25, alignSelf: 'center', marginStart: 10, fontWeight: "700"}}>
+                <Text style={styles.itemHeader}>
                     {data.item._id}
                 </Text>
-                <Picker
-                selectedValue={this.state.selectedItem}
-                style={[styles.rowItem], {flex: 8, alignSelf: 'center', fontWeight: "500"}}
-                itemStyle={{height: 44}}
-                onValueChange={(key) => this.setState({selectedItem: key})}
-                >
-                    {/* this maps the cars array from the student object and populates a picker if there is more
-                    than one */}
-                    {data.item.cars.map((item, index) => {
-                        return (<Picker.Item label={item} value={index} key={index}/>) 
-                    })}
-                </Picker>
+                <View style={[styles.verticalCompact, {flex:1}]}>
+                    <Text style={[styles.itemHeader]}>
+                        {data.item.name}
+                    </Text>
+                    <Picker
+                    selectedValue={this.state.selectedItem}
+                    itemStyle={{height: 44}}
+                    onValueChange={(key) => this.setState({selectedItem: key})}
+                    >
+                        {/* this maps the cars array from the student object and populates a picker if there is more
+                        than one */}
+                        {data.item.cars.map((item, index) => {
+                            return (<Picker.Item label={item} value={index} key={index}/>) 
+                        })}
+                    </Picker>
+                </View>
                 <IconButton
                     style={{alignSelf: 'center'}}
                     icon='trash-can-outline'
@@ -109,7 +111,6 @@ class CarList extends React.Component {
                     onPress={() => this.deleteCar(data.item._id)}
                 />
             </View>
-        </TouchableOpacity>
         </View>
 
     render() {

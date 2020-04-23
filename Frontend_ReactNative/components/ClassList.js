@@ -4,6 +4,7 @@ import { View, Text, ActivityIndicator, FlatList, TouchableOpacity, Picker} from
 import styles from '../config/styles'
 import colors from '../config/colors';
 import { observer, inject } from 'mobx-react';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
 class ClassList extends React.Component {
@@ -19,20 +20,53 @@ class ClassList extends React.Component {
     }
 
     componentWillUnmount() {
+    } 
+
+    changeModeIcon(data){
+        if (data.item.mode == 'BUS') {
+            return 'bus-side'
+        } else if (data.item.mode == 'CAR') {
+            return 'car-side'
+        } else if (data.item.mode == 'WALK') {
+            return 'walk'
+        } else {
+            return 'car'
+        }
     }
 
     renderItem = (data) => 
-        <View style={styles.card}>
-        <TouchableOpacity style={styles.listItem}>
-            <View style={styles.textRow}>
-                <Text style={[styles.rowItem]}>
-                    {data.item.name}
+        <View style={[styles.card, styles.listItem]}> 
+            <View style={styles.horizontal}>
+                <Text style={[styles.itemHeader, {flex: 1}]}>
+                        {data.item._id}
                 </Text>
-                <Text style={[styles.rowItem, {textAlign: 'right'}]}>
-                    {data.item.mode}
-                </Text>
+                <View style={[styles.verticalCompact, {flex: 3}]}>
+                    <Text style={[styles.itemHeader]}>
+                        {data.item.name}
+                    </Text>
+                    <View style={styles.horizontalCompact}>
+                        <Icon name='google-classroom' style={styles.detailIcon} size={18} />
+                        <Text style={styles.detailText}>
+                            {'Grade '}{data.item.grade}
+                        </Text>
+                    </View>
+                    <View style={styles.horizontalCompact}>
+                        <Icon name='human-male-girl' style={styles.detailIcon} size={18} />
+                        <FlatList
+                            data={data.item.guardians}
+                            renderItem={({item}) => <Text style={styles.detailText}>{item}</Text>}
+                            keyExtractor= {item=>item._id}
+                            />
+                    </View>
+                    
+                </View>
+                <View style={styles.horizontalCompact}>
+                        <Icon name={this.changeModeIcon(data)} style={styles.detailIcon} size={22} />
+                        <Text style={styles.itemHeader}>
+                            {data.item.mode}
+                        </Text>
+                </View>
             </View>
-        </TouchableOpacity>
         </View>
 
     render() {

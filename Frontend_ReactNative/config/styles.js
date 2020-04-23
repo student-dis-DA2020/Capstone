@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
       flex: 1,
       alignItems: 'flex-start',
       justifyContent: 'center',
-      paddingVertical: 4,
+      padding: 16,
       margin: 2,
       color: 'white'
     },
@@ -65,8 +65,7 @@ const styles = StyleSheet.create({
     },
     horizontal: {
       flexDirection: 'row',
-      justifyContent: 'space-around',
-      padding: 10
+      justifyContent: 'space-around'
     },
     horizontalCompact:{
       flexDirection: 'row',
@@ -75,6 +74,12 @@ const styles = StyleSheet.create({
       flexDirection: 'column',
       justifyContent: 'space-around',
       padding: 10
+    },
+    
+    verticalComfortable: {
+      flexDirection: 'column',
+      justifyContent: 'space-around',
+      marginHorizontal: 18
     },
     verticalCompact: {
       flexDirection: 'column',
@@ -116,13 +121,20 @@ const styles = StyleSheet.create({
       padding: 5,
     },
     right:{
-      alignSelf: 'flex-end'
+      position: 'absolute'
     },
     studentName:{
       fontSize: 18
     },
     detailIcon:{
       marginHorizontal: 8
+    },
+    detailText: {
+      color:'#000'
+    },
+    itemHeader: {
+      fontSize: 18,
+      marginBottom:2
     }
 });
 
