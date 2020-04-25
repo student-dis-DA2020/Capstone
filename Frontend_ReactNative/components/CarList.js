@@ -5,6 +5,7 @@ import styles from '../config/styles'
 import colors from '../config/colors';
 import { observer, inject } from 'mobx-react';
 import { IconButton } from 'react-native-paper';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 class CarList extends React.Component {
@@ -15,12 +16,6 @@ class CarList extends React.Component {
             cars: []
         }
     }
-
-    onPickerSelect (index) {
-		this.setState({
-			selectedItem: index,
-		})
-	}
 
     //makes a call to the api to update the list
     updateQueue = async () => {
@@ -66,6 +61,7 @@ class CarList extends React.Component {
             console.log(e);
         }
     }
+
     //this method renders each individual car card
     renderItem = (data) => 
         <View style={[styles.card, styles.listItem]}>
