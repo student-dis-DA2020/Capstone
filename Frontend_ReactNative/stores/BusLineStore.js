@@ -169,13 +169,13 @@ constructor(){
         }
     }
 
-    changeDismissStatusAsync = async (id) => {
+    //sends a notification email (if address is available) to parent of student
+    dismissStudentAsync = async (id) => {
         try {
-            const response = await this.busLineService.changeDismissStatus(id)
+            const response = await this.busLineService.dismissById(id)
             runInAction(() => {
                 this.status = "success";
                 this.loading = false;
-                this.updateQueueAsync();
             })
         } catch (error) {
             runInAction(() => {
@@ -183,7 +183,6 @@ constructor(){
             });
         }
     }
-    
 }
 
 decorate(BusLineStore, {
@@ -196,7 +195,8 @@ decorate(BusLineStore, {
    // addBusAsync: action,
     //deleteBusAsync: action,
     moveUpAsync: action,
-    moveDownAsync: action
+    moveDownAsync: action,
+    dismissStudentAsync: action
 });
 
 export default new BusLineStore();

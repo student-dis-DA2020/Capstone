@@ -28,7 +28,6 @@ class StudentsService {
      const response = await fetch(request);
      return response.json();
     }
-
 }
 
 export default StudentsService;

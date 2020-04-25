@@ -199,6 +199,20 @@ constructor(){
             });
         }
     }
+    //sends a notification email (if address is available) to parent of student
+    dismissStudentAsync = async (id) => {
+        try {
+            const response = await this.carLineQueueService.dismissById(id)
+            runInAction(() => {
+                this.status = "success";
+                this.loading = false;
+            })
+        } catch (error) {
+            runInAction(() => {
+                this.status = "error";
+            });
+        }
+    }
 }
 
 decorate(CarLineStore, {
@@ -213,7 +227,8 @@ decorate(CarLineStore, {
     moveUpAsync: action,
     moveDownAsync: action,
     changeWaitingStatus: action,
-    sendNotificationEmailAsync: action
+    sendNotificationEmailAsync: action,
+    dismissStudentAsync: action
 });
 
 export default new CarLineStore();

@@ -46,6 +46,17 @@ class CarLineQueueService {
         const response = await fetch(request);
         return response;
     }
+    
+    dismissById = async (id) => {
+        const options = {
+            method: "POST",
+        }
+     const request = new Request(API.BASE_URL + API.DISMISS + "/" + id, options);
+     console.log(request);
+     const response = await fetch(request);
+     return response.json();
+    }
+
 }
 
 export default CarLineQueueService;

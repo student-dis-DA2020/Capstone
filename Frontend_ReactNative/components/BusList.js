@@ -45,7 +45,7 @@ class BusList extends React.Component {
     dismissStudent = async (id) => {
         try { 
             console.log('dismiss ' + id);
-            await this.props.BusLineStore.changeDismissStatusAsync(id)
+            await this.props.BusLineStore.dismissStudentAsync(id)
             await this.props.BusLineStore.sendNotificationEmailAsync(id)
         } catch (e) {
             console.log(e);

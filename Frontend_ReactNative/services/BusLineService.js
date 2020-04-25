@@ -40,8 +40,14 @@ class BusLineService {
         return response;
     }
 
-    
-
+    dismissById = async (id) => {
+        const options = {
+            method: "POST",
+        }
+     const request = new Request(API.BASE_URL + API.DISMISS + "/" + id, options);
+     const response = await fetch(request);
+     return response.json();
+    }
 }
 
 export default BusLineService;

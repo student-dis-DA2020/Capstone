@@ -46,6 +46,14 @@ class CarList extends React.Component {
         }
     }
 
+    dismissStudent = async (id) => {
+        try {
+            await this.props.CarLineStore.dismissStudentAsync(id);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
     moveUp = async (id) => {
         try {
             await this.props.CarLineStore.moveUpAsync(id);

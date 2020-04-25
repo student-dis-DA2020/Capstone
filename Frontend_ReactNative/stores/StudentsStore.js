@@ -42,7 +42,6 @@ constructor(){
         }
 
     };
-
 }
 
 decorate(StudentsStore, {

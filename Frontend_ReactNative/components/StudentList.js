@@ -36,6 +36,8 @@ class StudentList extends React.Component {
             //if deleted from this screen send notification email.  if you delete from the 
             //cars screen this will not send so you can fix mistakes on that screen without alerting the parents
             await this.props.CarLineStore.sendNotificationEmailAsync(id);
+            //create dismissal entry in the database
+            await this.props.CarLineStore.dismissStudentAsync(id);
         } catch (e) {
             console.log(e);
         }

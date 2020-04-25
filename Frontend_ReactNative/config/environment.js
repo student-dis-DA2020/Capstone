@@ -3,7 +3,8 @@ const API = {
     ALL_STUDENTS: '/all',
     CARLINE: '/line',
     BUS_LINE: '/all/searchByMode?mode=BUS',
-    EMAIL: '/sendEmail'
+    EMAIL: '/sendEmail',
+    DISMISS: '/dismissal'
     
     //dismiss individual student using their id. TODO: add functionality in backend
     //DISMISS: '/dismiss' 
