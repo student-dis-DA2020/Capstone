@@ -12,6 +12,9 @@ class StudentsService {
     }
 
     getById = async (id) => {
+
+
+        
         const options = {
             method: "GET",
         }
