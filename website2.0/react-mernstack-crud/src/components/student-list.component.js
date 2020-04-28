@@ -49,7 +49,6 @@ export default class StudentList extends Component {
             <th>Parent 2</th>
             <th>Car</th>
             <th>Email</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
