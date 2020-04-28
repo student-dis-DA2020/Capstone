@@ -177,7 +177,7 @@ export default class CreateStudent extends Component {
           </Form.Group>
 
           <Form.Group controlId="Email">
-            <Form.Label>Email ID</Form.Label>
+            <Form.Label>Email Address</Form.Label>
             <Form.Control
               type="Email"
               name="Email"
