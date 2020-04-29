@@ -3,6 +3,8 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import API from '../config/environment';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from "@material-ui/core/DialogActions";
 
 
 export default class UpdateStudent extends Component {
@@ -24,7 +26,8 @@ export default class UpdateStudent extends Component {
       cars: '',
       position: '',
       email: '',
-      received: []
+      received: [],
+      isModalOpen: false,
     }
 
     this.state = React.createRef();
@@ -43,6 +46,10 @@ export default class UpdateStudent extends Component {
       })
 
   }
+
+  openModal = () => {
+    this.setState({ isModalOpen: true });
+  };
 
   onSubmit = (e) => {
 
@@ -71,6 +78,10 @@ export default class UpdateStudent extends Component {
           Email: e.target.elements.Email.value === '' ? temp.email : e.target.elements.Email.value
         };
 
+
+
+
+
         axios.post(API.BASE_URL + '/all', studentObject)
           .then(res => console.log(res.data));
 
@@ -90,10 +101,12 @@ export default class UpdateStudent extends Component {
 
 
   render() {
+    const content = 'Success: The student data was updated in the database.';
     return (<div className="form-wrapper">
       <h2 style={{ margin: 20 }}>
         Update Student Data
         </h2>
+      <p> To update a students information, please enter in the students ID and other data you wish to update.</p>
       <Form onSubmit={this.onSubmit}
         style={{
           width: 600,
@@ -106,11 +119,11 @@ export default class UpdateStudent extends Component {
         }}>
 
         <Form.Group controlId="_id">
-          <Form.Label> Student ID </Form.Label>
+          <Form.Label> Student ID *</Form.Label>
           <Form.Control
             type="number"
             name="_id"
-            placeholder="Update Student ID" />
+            placeholder="Enter Student ID" />
         </Form.Group>
 
         <Form.Group controlId="Name">
@@ -154,7 +167,7 @@ export default class UpdateStudent extends Component {
         </Form.Group>
 
         <Form.Group controlId="mode">
-          <Form.Label>Mode</Form.Label>
+          <Form.Label>Mode of Transportation</Form.Label>
           <Form.Control
             type="text"
             name="mode"
@@ -209,10 +222,28 @@ export default class UpdateStudent extends Component {
             placeholder="Update Email Addressl" />
         </Form.Group>
 
-        <Button variant="danger" size="lg" block="block" type="submit">
+        <Button variant="danger" size="lg" block="block" type="submit" onClick={this.openModal}>
           Update Student
         </Button>
       </Form>
+
+      <Dialog
+        open={this.state.isModalOpen}
+        onClose={() => this.setState({
+          isModalOpen: false,
+        })}
+      >
+        <div style={{ padding: 10 }}>
+          {content}
+        </div>
+        <DialogActions>
+          <Button onClick={() => this.setState({
+            isModalOpen: false,
+          })} color="primary" autoFocus>
+            Close
+                  </Button>
+        </DialogActions>
+      </Dialog>
     </div>);
   }
 }

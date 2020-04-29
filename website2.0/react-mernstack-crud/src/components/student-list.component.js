@@ -39,12 +39,7 @@ export default class StudentList extends Component {
         <h2 style={{ margin: 20 }}>
           Student List
         </h2>
-        <Table striped bordered hovertyle={{
-
-
-          marginRight: 30,
-          justifyContent: 'center',
-        }}>
+        <Table striped bordered hover>
 
           <thead>
             <tr>
