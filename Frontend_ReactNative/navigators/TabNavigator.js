@@ -51,16 +51,7 @@ const CarLineTabNavigator = createMaterialTopTabNavigator(
 );
 
 const TabNavigator = createMaterialBottomTabNavigator({
-  Home: {
-    screen: Home,
-    navigationOptions: {
-      tabBarLabel: <Text style={{ fontSize: 10, color: activeTintLabelColor }}> Home </Text>,
-      tabBarIcon: ({ focused }) => (
-        <Icon name='home' color={focused ? activeTintLabelColor : inactiveTintLabelColor} size={24} />
-      ),
-      tabBarColor: colors.DARK_BLUE
-    }
-  },
+  
   Class: {
     screen: Class,
     navigationOptions: {
@@ -68,7 +59,8 @@ const TabNavigator = createMaterialBottomTabNavigator({
       tabBarIcon: ({ focused }) => (
         <Icon name='google-classroom' color={focused ? activeTintLabelColor : inactiveTintLabelColor} size={24} />
       ),
-      tabBarColor: '#0288D1'
+      tabBarColor: '#0288D1',
+       shifting: true
     }
   },
   CarLine: {
@@ -78,7 +70,8 @@ const TabNavigator = createMaterialBottomTabNavigator({
       tabBarIcon: ({ focused }) => (
         <Icon name='car' color={focused ? activeTintLabelColor : inactiveTintLabelColor} size={24} />
       ),
-      tabBarColor: '#0277BD'
+      tabBarColor: '#0277BD',
+      shifting: true
     }
   },
   BusLine: {
@@ -88,7 +81,8 @@ const TabNavigator = createMaterialBottomTabNavigator({
       tabBarIcon: ({ focused }) => (
         <Icon name='bus' color={focused ? activeTintLabelColor : inactiveTintLabelColor} size={24} />
       ),
-      tabBarColor: '#01579B'
+      tabBarColor: '#01579B',
+      shifting: true
     }
   }
 });
