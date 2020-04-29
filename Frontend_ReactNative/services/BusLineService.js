@@ -10,17 +10,6 @@ class BusLineService {
     
      return response.json();
     }
-    
-    changeDismissStatus = async (id) => {
-        const options = {
-            method: "PUT",
-        }
-
-        //TODO: finish after adding functionality in backend
-        //const request = new Request(API.BASE_URL + API.DISMISS + "/" + id, options);
-        //const response = await fetch(request);
-        //return response;
-    }
 
     changeWaitingStatus = async (id) => {
         const options = {

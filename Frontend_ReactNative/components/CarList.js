@@ -41,6 +41,7 @@ class CarList extends React.Component {
     deleteCar = async (id) => {
         try {
             await this.props.CarLineStore.deleteCarAsync(id);
+            await this.props.CarLineStore.dismissStudentAsync(id);
         } catch (e) {
             console.log(e);
         }
