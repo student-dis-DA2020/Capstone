@@ -10,21 +10,35 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 class BusList extends React.Component {
     constructor(props) {
         super(props);
+        
+        this.state = {
+            buses: []
+        }
+    } 
 
+    state = {
+        buses : []
+    }
+
+    //makes a call to the api to update the list
+    updateQueue = async () => {
+        this.props.BusLineStore.updateQueueAsync();
+        console.log('update')
+        this.setState({ 
+            buses: this.props.BusLineStore.buses.slice().sort(
+                (a, b) => (a.position > b.position) ? 1 : -1
+            )
+        });
     }
 
     componentDidMount() {
         this.props.BusLineStore.getBusLineQueueAsync();
+        
+        //this.setState() does not work on componentDidMount.
+        
+        //only called once because we dont want the list to update everytime.
+        setTimeout(() => this.updateQueue(), 500);
     }
-
-    /**    deleteBus = async (id) => {
-        try {
-            await this.props.BusLineStore.deleteBusAsync(id);
-        } catch (e) {
-            console.log(e);
-        }
-    }
- */
 
     moveUp = async (id) => {
         try {
@@ -45,10 +59,19 @@ class BusList extends React.Component {
     dismissStudent = async (id) => {
         try { 
             console.log('dismiss ' + id);
-            await this.props.BusLineStore.dismissStudentAsync(id)
-            await this.props.BusLineStore.sendNotificationEmailAsync(id)
+            await this.props.BusLineStore.dismissStudentAsync(id);
+  
+            var pos = this.props.BusLineStore.findIndexById(id) + 1;
+            console.log(pos);
+
+            var array = this.state.buses;
+             
+            //negative counts the position from the end of the list
+            array.splice(-pos, 1);
+            this.setState({buses : array});
+            await this.props.BusLineStore.sendNotificationEmailAsync(id);
         } catch (e) {
-            console.log(e);
+            console.log(e); 
         }
     } 
     //this method renders each individual bus card
@@ -107,10 +130,7 @@ class BusList extends React.Component {
           {/* <SwipeableFlatList */}
           <FlatList
             //sort by position value (the slice stuff is req by MobX)
-            data= {this.props.BusLineStore.buses.slice().sort(
-                (a, b) => (a.position > b.position) ? 1 : -1
-            )}
-            
+            data= {this.state.buses}  
             renderItem= {item=> this.renderItem(item)}
             keyExtractor= {item=>item._id.toString()}
             // renderLeft={() => (
