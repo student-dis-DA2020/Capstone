@@ -57,6 +57,13 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    refreshPageContainer: {
+      flexDirection: 'row',
+      //padding: 5,
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
     toolbarContainer: {
       flex: 1,
       backgroundColor: '#F1FAEE',

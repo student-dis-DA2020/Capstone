@@ -1,8 +1,11 @@
 
 import React from 'react';
 import { View, Text, ActivityIndicator, FlatList, TouchableOpacity, Picker} from 'react-native';
+import { TouchableNativeFeedback } from 'react-native';
 import styles from '../config/styles'
 import colors from '../config/colors';
+import {List, Checkbox } from 'react-native-paper';
+//import DropdownButton from 'react-bootstrap/DropdownButton'
 import { observer, inject } from 'mobx-react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
@@ -15,12 +18,29 @@ class ClassList extends React.Component {
         };
     }
 
-    componentDidMount(){
+    //added to update the list based on the teacher selected.
+    updateList = async () => {
+            if(this.state.teacher == 'Lena Dunham')
+            {
+                this.state.teacher ='Lori Strothers'
+            }
+            else
+            {
+                this.state.teacher ='Lena Dunham';
+            }
         this.props.StudentsStore.getStudentsByTeacher(this.state.teacher);
     }
 
+
+    componentDidMount(){
+        this.props.StudentsStore.getStudentsByTeacher(this.state.teacher);
+
+        //update the List every 3 seconds when open
+        //setInterval(() => this.updateList(), 3000);
+    }
+
     componentWillUnmount() {
-    } 
+    }
 
     changeModeIcon(data){
         if (data.item.mode == 'BUS') {
@@ -34,8 +54,8 @@ class ClassList extends React.Component {
         }
     }
 
-    renderItem = (data) => 
-        <View style={[styles.card, styles.listItem]}> 
+    renderItem = (data) =>
+        <View style={[styles.card, styles.listItem]}>
             <View style={styles.horizontal}>
                 <Text style={[styles.itemHeader, {flex: 1}]}>
                         {data.item._id}
@@ -58,7 +78,7 @@ class ClassList extends React.Component {
                             keyExtractor= {item=>item._id}
                             />
                     </View>
-                    
+
                 </View>
                 <View style={styles.horizontalCompact}>
                         <Icon name={this.changeModeIcon(data)} style={styles.detailIcon} size={22} />
@@ -70,25 +90,65 @@ class ClassList extends React.Component {
         </View>
 
     render() {
-        //render loading indicator 
+        //render loading indicator
         if(this.props.StudentsStore.loading){
-         return( 
-           <View style={styles.listContainer}> 
+         return(
+           <View style={styles.listContainer}>
              <ActivityIndicator size="large" color={colors.BLUE}/>
            </View>
        )}
        //render list
        return(
-        <View style={styles.listContainer}>  
-          <FlatList
-            //sort by position value
-            data= {this.props.StudentsStore.studentsData.class.slice().sort(
+       //changes here
+        <View style={styles.mainContainer}>
+            <View style={[styles.listContainer, {flex: 8}]}>
+                <FlatList
+                //sort by position value
+                data= {this.props.StudentsStore.studentsData.class.slice().sort(
                 (a, b) => a.mode.localeCompare(b.mode)
-            )}
-            renderItem= {item=> this.renderItem(item)}
-            keyExtractor= {item=>item._id.toString()}
-          />
-       </View>
+                    )}
+                    renderItem= {item=> this.renderItem(item)}
+                keyExtractor= {item=>item._id.toString()}
+               />
+            </View>
+                  <List.Section title="Teachers" style={{width:200}}>
+                    <List.Accordion
+                      title="Teachers"
+                      left={props => <List.Icon {...props} icon="folder" />}
+                      expanded={this.state.expanded}
+                      onPress={this._handlePress}
+                      style={[styles.center, {flex:0}]}
+                    >
+                      <List.Item title='Jack Frost' />
+                      <List.Item title='Lena Dunham' />
+                    </List.Accordion>
+                  </List.Section>
+
+            <TouchableNativeFeedback
+                                     onPress={() => this.updateList()}
+                                    useForeground = {true}
+                                    style={[styles.right, {flex:0}]}>
+            <View
+                        style={[styles.cardButton]} >
+                            <Text style={styles.buttonText}>
+                                {"Refresh"}
+                            </Text>
+                    </View>
+            </TouchableNativeFeedback>
+        </View>
+
+
+//       <TouchableNativeFeedback
+//            onPress={() => this.updateList()}
+//            useForeground = {true}
+//            style={[styles.right, {flex:0}]}>
+//            <View
+//                style={[styles.cardButton]} >
+//                <Text style={styles.buttonText}>
+//                {"Add Car"}
+//                </Text>
+//                </View>
+//       </TouchableNativeFeedback>
     )}
 };
 
