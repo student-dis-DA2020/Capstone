@@ -6,6 +6,7 @@ import colors from '../config/colors';
 import { observer, inject } from 'mobx-react';
 import { IconButton } from 'react-native-paper';
 import { ScrollView } from 'react-native-gesture-handler';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
 class CarList extends React.Component {
@@ -75,7 +76,8 @@ class CarList extends React.Component {
     renderItem = (data) => 
         <View style={[styles.card, styles.listItem]}>
             <View style={styles.horizontal}>
-                <View style={styles.verticalCompact}>
+                <View style={[styles.verticalCompact, { 
+      justifyContent: 'space-around',}]}>
                     <IconButton
                         icon='arrow-up-bold'
                         color={colors.BLUE}
@@ -89,16 +91,16 @@ class CarList extends React.Component {
                         onPress={() => this.moveDown(data.item._id)}
                     />
                 </View>
-                <Text style={styles.itemHeader}>
-                    {data.item._id}
-                </Text>
-                <View style={[styles.verticalCompact, {flex:1}]}>
-                    <Text style={[styles.itemHeader]}>
-                        {data.item.name}
+                
+                <Text style={[styles.itemHeader, {justifyContent: "space-around", alignSelf: "center", marginHorizontal: 12}]}>
+                        {data.item._id}
                     </Text>
+                
+                <View style={[styles.verticalCompact, {flex:1, marginHorizontal: 14}]}>
+                    
                     <Picker
                     selectedValue={this.state.selectedItem}
-                    itemStyle={{height: 44}}
+                    style={[styles.itemHeader]}
                     onValueChange={(key) => this.setState({selectedItem: key})}
                     >
                         {/* this maps the cars array from the student object and populates a picker if there is more
@@ -111,10 +113,11 @@ class CarList extends React.Component {
                 <IconButton
                     style={{alignSelf: 'center'}}
                     icon='trash-can-outline'
-                    color={colors.RED}
+                    color={colors.BLUE}
                     size={30}
                     onPress={() => this.deleteCar(data.item._id)}
                 />
+                
             </View>
         </View>
 
