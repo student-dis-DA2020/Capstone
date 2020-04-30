@@ -111,7 +111,7 @@ class ClassList extends React.Component {
                 keyExtractor= {item=>item._id.toString()}
                />
             </View>
-                  <List.Section title="Teachers" style={{width:200}}>
+                  <List.Section title=" " style={{width:200}}>
                     <List.Accordion
                       title="Teachers"
                       left={props => <List.Icon {...props} icon="folder" />}
@@ -121,6 +121,7 @@ class ClassList extends React.Component {
                     >
                       <List.Item title='Jack Frost' />
                       <List.Item title='Lena Dunham' />
+                      <List.Item title='Lori Strothers'/>
                     </List.Accordion>
                   </List.Section>
 
@@ -131,7 +132,7 @@ class ClassList extends React.Component {
             <View
                         style={[styles.cardButton]} >
                             <Text style={styles.buttonText}>
-                                {"Refresh"}
+                                {"Search"}
                             </Text>
                     </View>
             </TouchableNativeFeedback>
