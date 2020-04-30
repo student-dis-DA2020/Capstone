@@ -8,14 +8,20 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
 import CreateStudent from "./components/create-student.component";
-import EditStudent from "./components/edit-student.component";
 import StudentList from "./components/student-list.component";
 import UpdateStudent from "./components/update-student.component";
 import DeleteStudent from "./components/delete-student.component";
 
+
+
 function App() {
+
+  function handleClick(e) {
+    e.preventDefault();
+    console.log('The link was clicked.');
+  }
+
   return (
     <Router>
       <div className="App" >
@@ -29,10 +35,9 @@ function App() {
               fontWeight: 'bold',
               margin: 20,
               display: 'inline-block',
-              // paddingRight: 20,
             }}>
               School Dismissal App
-      </h2>
+            </h2>
             <DropdownButton id="dropdown-basic-button" title="Menu" variant="primary" size="lg" style={{
               display: 'inline-block', position: 'absolute', top: 20, right: 30
             }} >
@@ -42,68 +47,6 @@ function App() {
               <Dropdown.Item href="/student-list">Student List</Dropdown.Item>
             </DropdownButton>
           </div>
-
-
-
-
-
-          {/* <div style={{ display: 'flex', alignItems: 'center' }}>
-
-
-          <Nav className="justify-content-end" style={{ alignItems: 'center' }}>
-            <Nav>
-              <Link to={"/create-student"} className="nav-link" style={{
-                color: 'white',
-                textAlign: 'center',
-                fontSize: 20,
-                padding: '6px 12px',
-                fontWeight: 'bold',
-              }}>
-                Create Student
-                </Link>
-            </Nav>
-
-            <Nav>
-              <Link to={"/update-student"} className="nav-link" style={{
-                color: 'white',
-                textAlign: 'center',
-                fontSize: 20,
-                padding: '6px 12px',
-                fontWeight: 'bold',
-              }}>
-                Update Student
-                </Link>
-            </Nav>
-
-            <Nav>
-              <Link to={"/delete-student"} className="nav-link" style={{
-                color: 'white',
-                textAlign: 'center',
-                fontSize: 20,
-                padding: '6px 12px',
-                fontWeight: 'bold',
-              }}>
-                Delete Student
-                </Link>
-            </Nav>
-
-            <Nav>
-              <Link to={"/student-list"} className="nav-link" style={{
-                color: 'white',
-                textAlign: 'center',
-                fontSize: 20,
-                padding: '6px 12px',
-                fontWeight: 'bold',
-              }}>
-                Student List
-                </Link>
-            </Nav>
-          </Nav>
-
-
-
-        </div> */}
-          {/* </Navbar> */}
         </div>
 
 
@@ -114,7 +57,6 @@ function App() {
                 <Switch>
                   <Route exact path='/' component={CreateStudent} />
                   <Route path="/create-student" component={CreateStudent} />
-                  <Route path="/edit-student/:id" component={EditStudent} />
                   <Route path="/student-list" component={StudentList} />
                   <Route path="/update-student" component={UpdateStudent} />
                   <Route path="/delete-student" component={DeleteStudent} />
@@ -126,5 +68,4 @@ function App() {
       </div >
     </Router >);
 }
-
 export default App;

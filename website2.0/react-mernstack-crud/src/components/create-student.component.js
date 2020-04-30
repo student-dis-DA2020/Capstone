@@ -3,6 +3,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import API from '../config/environment';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from "@material-ui/core/DialogActions";
 
 export default class CreateStudent extends Component {
 
@@ -22,7 +24,8 @@ export default class CreateStudent extends Component {
       guardian2: '',
       cars: '',
       position: '',
-      email: ''
+      email: '',
+      isModalOpen: false
     }
 
     this.state = React.createRef();
@@ -56,11 +59,15 @@ export default class CreateStudent extends Component {
 
   }
 
+  openModal = () => {
+    this.setState({ isModalOpen: true });
+  };
 
 
 
 
   render() {
+    const content = 'Success: The student data was added to the database.';
     return (
 
       <div className="form-wrapper">
@@ -70,7 +77,6 @@ export default class CreateStudent extends Component {
         <Form onSubmit={this.onSubmit}
           style={{
             width: 600,
-            // margin: 20,
             marginLeft: 265,
             marginTop: 10,
             position: 'absolute',
@@ -129,7 +135,7 @@ export default class CreateStudent extends Component {
           </Form.Group>
 
           <Form.Group controlId="mode">
-            <Form.Label>Mode</Form.Label>
+            <Form.Label>Mode of Transportation</Form.Label>
             <Form.Control
               type="text"
               name="mode"
@@ -177,17 +183,35 @@ export default class CreateStudent extends Component {
           </Form.Group>
 
           <Form.Group controlId="Email">
-            <Form.Label>Email ID</Form.Label>
+            <Form.Label>Email Address</Form.Label>
             <Form.Control
               type="Email"
               name="Email"
               placeholder="Enter Email Address" />
           </Form.Group>
 
-          <Button variant="danger" size="md" block="block" type="submit">
+          <Button variant="danger" size="md" block="block" type="submit" onClick={this.openModal}>
             Create Student
         </Button>
         </Form>
+
+        <Dialog
+          open={this.state.isModalOpen}
+          onClose={() => this.setState({
+            isModalOpen: false,
+          })}
+        >
+          <div style={{ padding: 10 }}>
+            {content}
+          </div>
+          <DialogActions>
+            <Button onClick={() => this.setState({
+              isModalOpen: false,
+            })} color="primary" autoFocus>
+              Close
+                  </Button>
+          </DialogActions>
+        </Dialog>
       </div>);
   }
 }

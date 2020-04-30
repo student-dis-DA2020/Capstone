@@ -34,27 +34,32 @@ export default class StudentList extends Component {
 
 
   render() {
-    return (<div className="table-wrapper">
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Student ID</th>
-            <th>Student Name</th>
-            <th>Teacher</th>
-            <th>Bus Number</th>
-            <th>Class Room</th>
-            <th>Students Grade</th>
-            <th>Mode of transportation</th>
-            <th>Parent 1</th>
-            <th>Parent 2</th>
-            <th>Car</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          {this.DataTable()}
-        </tbody>
-      </Table>
-    </div>);
+    return (
+      <div className="table-wrapper">
+        <h2 style={{ margin: 20 }}>
+          Student List
+        </h2>
+        <Table striped bordered hover>
+
+          <thead>
+            <tr>
+              <th>Student ID</th>
+              <th>Student Name</th>
+              <th>Teacher</th>
+              <th>Bus Number</th>
+              <th>Class Room</th>
+              <th>Students Grade</th>
+              <th>Transportation</th>
+              <th>Gaurdian 1</th>
+              <th>Gaurdian 2</th>
+              <th>Car</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.DataTable()}
+          </tbody>
+        </Table>
+      </div >);
   }
 }
